@@ -1,3 +1,5 @@
+![ChainForensics](image.png)
+
 # ChainForensics — Presentation
 > **Blockchain-Backed IoT Forensic Evidence Platform**
 
