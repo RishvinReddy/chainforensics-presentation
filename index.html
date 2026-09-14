@@ -38,11 +38,12 @@
             <div class="s1v2-team-container">
               <div class="s1v2-team-head">PROJECT RESEARCH TEAM</div>
               <table class="s1v2-team-table">
-                <thead><tr><th>#</th><th>NAME</th><th>PRIMARY RESPONSIBILITY</th></tr></thead>
+                <thead><tr><th>#</th><th>NAME</th><th>ROLL NO.</th></tr></thead>
                 <tbody>
-                  <tr><td class="s1v2-tt-num">01</td><td class="s1v2-tt-name">Erolla Rishvin Reddy</td><td class="s1v2-tt-role">BLOCKCHAIN &amp; ARCHITECTURE</td></tr>
-                  <tr><td class="s1v2-tt-num">02</td><td class="s1v2-tt-name">Yogamruth Reddy Guggilla</td><td class="s1v2-tt-role">IoT &amp; EDGE SECURITY</td></tr>
-                  <tr><td class="s1v2-tt-num">03</td><td class="s1v2-tt-name">Muppuri Chakradhar</td><td class="s1v2-tt-role">DIGITAL FORENSICS &amp; UI</td></tr>
+                  <tr><td class="s1v2-tt-num">01</td><td class="s1v2-tt-name">Erolla Rishvin Reddy</td><td class="s1v2-tt-role">24WU0103006</td></tr>
+                  <tr><td class="s1v2-tt-num">02</td><td class="s1v2-tt-name">Yogamrith Reddy Guggila</td><td class="s1v2-tt-role">24WU0103019</td></tr>
+                  <tr><td class="s1v2-tt-num">03</td><td class="s1v2-tt-name">Chakradhar</td><td class="s1v2-tt-role">24WU0103020</td></tr>
+                  <tr><td class="s1v2-tt-num">04</td><td class="s1v2-tt-name">Srinivas Dathreya</td><td class="s1v2-tt-role">24WU0103015</td></tr>
                 </tbody>
               </table>
             </div>
@@ -593,7 +594,6 @@
 
           </div>
           
-          <div class="s6v2-slide-num">06 / 25</div>
         </section>
 
         <!-- ==============================================================
@@ -2782,7 +2782,7 @@
     </div>
   </div>
 
-  <div class="nav-hint-overlay">&larr; &rarr; / Space to navigate</div>
+  <div class="nav-hint-overlay">&larr; &rarr; / Space / Click to navigate</div>
 
   <script>
     /* Responsive Full Screen Scale Engine */
@@ -2838,6 +2838,20 @@
         } else {
           document.exitFullscreen().catch(() => {});
         }
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      // Prevent navigation if user is selecting text or clicking interactive elements
+      if (window.getSelection().toString().length > 0) return;
+      if (e.target.closest('a') || e.target.closest('button') || e.target.closest('input')) return;
+
+      const width = window.innerWidth;
+      // Click on the left half goes to the previous slide, right half goes to the next slide
+      if (e.clientX < width / 2) {
+        showSlide(currentSlide - 1);
+      } else {
+        showSlide(currentSlide + 1);
       }
     });
   </script>
