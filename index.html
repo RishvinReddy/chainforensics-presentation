@@ -1,0 +1,2845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChainForensics — Blockchain-Backed IoT Forensic Evidence Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="presentation-viewport">
+    <div id="stage">
+      <main class="deck-container">
+
+        <!-- ==============================================================
+             SLIDE 01: TITLE & PROJECT POSITIONING
+             Visual: Simple Project Pipeline (IoT -> Evidence -> Hash -> Anchor -> Verify)
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 01: TITLE SLIDE (V2)
+             ============================================================== -->
+        <section class="slide active" id="slide-01" data-slide="1">
+          
+          <div class="s1v2-left">
+            <div class="s1v2-uni-head">
+              <div class="s1v2-uni-name">WOXSEN UNIVERSITY</div>
+              <div class="s1v2-uni-sub">School of Technology &bull; Department of Computer Science &amp; Engineering</div>
+              <div class="s1v2-tag">CAPSTONE RESEARCH PROJECT</div>
+            </div>
+            
+            <h1 class="s1v2-title">ChainForensics</h1>
+            <div class="s1v2-subtitle">Blockchain-Backed IoT Forensic Evidence Platform</div>
+            
+            <div class="s1v2-statement">An evidence platform that preserves security-relevant IoT events and independently verifies their integrity using a blockchain-backed cryptographic commitment.</div>
+            
+            <div class="s1v2-domain">IoT SECURITY <span class="s1v2-dom-sep">&times;</span> DIGITAL FORENSICS <span class="s1v2-dom-sep">&times;</span> BLOCKCHAIN</div>
+            
+            <div class="s1v2-team-container">
+              <div class="s1v2-team-head">PROJECT RESEARCH TEAM</div>
+              <table class="s1v2-team-table">
+                <thead><tr><th>#</th><th>NAME</th><th>PRIMARY RESPONSIBILITY</th></tr></thead>
+                <tbody>
+                  <tr><td class="s1v2-tt-num">01</td><td class="s1v2-tt-name">Erolla Rishvin Reddy</td><td class="s1v2-tt-role">BLOCKCHAIN &amp; ARCHITECTURE</td></tr>
+                  <tr><td class="s1v2-tt-num">02</td><td class="s1v2-tt-name">Yogamruth Reddy Guggilla</td><td class="s1v2-tt-role">IoT &amp; EDGE SECURITY</td></tr>
+                  <tr><td class="s1v2-tt-num">03</td><td class="s1v2-tt-name">Muppuri Chakradhar</td><td class="s1v2-tt-role">DIGITAL FORENSICS &amp; UI</td></tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="s1v2-metadata">B.TECH CAPSTONE PROJECT &bull; COMPUTER SCIENCE &amp; ENGINEERING &bull; ACADEMIC YEAR 2025&ndash;2026</div>
+          </div>
+          
+          <div class="s1v2-divider"></div>
+
+          <div class="s1v2-right">
+            <div class="s1v2-visual-container">
+              <img src="cover_concept.jpg" alt="ChainForensics Concept">
+              <div class="s1v2-vis-caption">
+                <strong>CHAINFORENSICS</strong>
+                IoT security event &rarr; preserved evidence &rarr; independent integrity reference
+              </div>
+            </div>
+          </div>
+
+          <div class="s1v2-slide-num">01 / 25</div>
+        </section>
+
+        <!-- ==============================================================
+             SLIDE 02: PRESENTATION OVERVIEW
+             Visual: Academic Research Journey
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 02: PRESENTATION OVERVIEW (V2)
+             ============================================================== -->
+        <section class="slide" id="slide-02" data-slide="2">
+          
+          <div class="s2v2-header">
+            <h1 class="s2v2-title">Presentation Overview</h1>
+            <div class="s2v2-title-accent"></div>
+          </div>
+          
+          <div class="s2v2-structure-label">PRESENTATION STRUCTURE <span class="s2v2-str-arr">01 &rarr; 05</span></div>
+          
+          <div class="s2v2-grid">
+            
+            <!-- Band 1 -->
+            <div class="s2v2-row s2v2-row-top">
+              <div class="s2v2-block">
+                <div class="s2v2-num">01</div>
+                <div class="s2v2-block-title">Problem &amp; Motivation</div>
+                <div class="s2v2-block-line"></div>
+              </div>
+              <div class="s2v2-block">
+                <div class="s2v2-num">02</div>
+                <div class="s2v2-block-title">Theory &amp; Literature</div>
+                <div class="s2v2-block-line"></div>
+              </div>
+            </div>
+            
+            <!-- Band 2 (Section 3) -->
+            <div class="s2v2-row s2v2-row-center">
+              <div class="s2v2-block-hero">
+                <div class="s2v2-hero-num">03</div>
+                <div class="s2v2-hero-content">
+                  <div class="s2v2-hero-title">CHAINFORENSICS DESIGN</div>
+                  <div class="s2v2-hero-sub">Architecture &bull; Evidence Pipeline &bull; Verification</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Band 3 -->
+            <div class="s2v2-row s2v2-row-bottom">
+              <div class="s2v2-block">
+                <div class="s2v2-num">04</div>
+                <div class="s2v2-block-title">Implementation &amp; Validation</div>
+                <div class="s2v2-block-line"></div>
+              </div>
+              <div class="s2v2-block">
+                <div class="s2v2-num">05</div>
+                <div class="s2v2-block-title">Results &amp; Conclusion</div>
+                <div class="s2v2-block-line"></div>
+              </div>
+            </div>
+
+          </div>
+          
+          <div class="s2v2-closing">From problem definition to validated ChainForensics results.</div>
+          
+          <div class="s2v2-slide-num">02 / 25</div>
+        </section>
+
+        <!-- ==============================================================
+             SLIDE 03: THE PROBLEM
+             Visual: Two-Part Technical Composition (Pathway + Table)
+             ============================================================== -->
+        <section class="slide" id="slide-03" data-slide="3">
+          
+          <h2 class="slide-03-title">The Problem: Can IoT Evidence Still Be Trusted After an Incident?</h2>
+          <div class="slide-03-title-divider"></div>
+          
+          <div class="s3-content-wrapper">
+            
+            <!-- Left Column: Incident Pathway -->
+            <div class="s3-left-col">
+              <div class="s3-pathway">
+                
+                <!-- IoT Device -->
+                <div class="s3-node">
+                  <div class="s3-node-title">IoT Device</div>
+                  <div class="s3-node-sub">SENSOR TELEMETRY</div>
+                </div>
+                
+                <div class="s3-arrow-down"></div>
+                
+                <!-- Security Event -->
+                <div class="s3-node s3-event">
+                  <div class="s3-node-title">Security Event</div>
+                  <div class="s3-node-sub">EVENT TRIGGERED</div>
+                </div>
+                
+                <div class="s3-arrow-down"></div>
+                
+                <!-- Local Log -->
+                <div class="s3-node s3-log">
+                  <div class="s3-log-title">LOCAL LOG / DATABASE</div>
+                  <div class="s3-log-data">
+                    <div class="s3-log-row"><span>EVENT</span><span>EVT-00125</span></div>
+                    <div class="s3-log-row"><span>STATUS</span><span class="status-rec">RECORDED</span></div>
+                  </div>
+                </div>
+                
+                <!-- The Distinction -->
+                <div class="s3-distinction">
+                  <div class="s3-dist-text">RECORDED EVIDENCE</div>
+                  <div class="s3-dist-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                  </div>
+                  <div class="s3-dist-text s3-dist-alert">NO INDEPENDENT REFERENCE</div>
+                </div>
+                
+                <div class="s3-arrow-down s3-arrow-alert"></div>
+                
+                <!-- System Compromised -->
+                <div class="s3-node s3-compromised">
+                  SYSTEM COMPROMISED
+                </div>
+                
+              </div>
+            </div>
+            
+            <!-- Right Column: Threat Surface Table -->
+            <div class="s3-right-col">
+              <h3 class="s3-table-title">Forensic Threat Surface</h3>
+              <table class="s3-threat-table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Threat</th>
+                    <th style="width: 35%;">What can happen?</th>
+                    <th style="width: 45%;">Forensic Concern</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="threat-name">MODIFICATION</td>
+                    <td>Recorded evidence can be changed after collection.</td>
+                    <td class="threat-concern">Compromises evidence integrity. Attackers can alter logs to manipulate the investigation narrative and hide malicious activity.</td>
+                  </tr>
+                  <tr>
+                    <td class="threat-name">DELETION</td>
+                    <td>Recorded evidence can be removed after collection.</td>
+                    <td class="threat-concern">Compromises evidence availability. Attackers can erase logs to create investigative blind spots, making reconstruction impossible.</td>
+                  </tr>
+                  <tr>
+                    <td class="threat-name">REPLAY</td>
+                    <td>Previously captured events can be reintroduced.</td>
+                    <td class="threat-concern">Compromises temporal authenticity. Attackers can re-inject old telemetry to spoof system states and bypass chronological security checks.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+          </div>
+          
+          <!-- Bottom: Forensic Question -->
+          <div class="s3-question-area">
+            <div class="s3-q-line"></div>
+            <div class="s3-q-text">Can the original evidence still be <span class="s3-q-hl">verified?</span></div>
+          </div>
+          
+        </section>
+
+        <!-- ==============================================================
+             SLIDE 04: MOTIVATION & RESEARCH GAP
+             Visual: Research-gap matrix + Forensic interpretation
+             ============================================================== -->
+        <section class="slide" id="slide-04" data-slide="4">
+          
+          <h2 class="slide-04-title">Why Existing IoT Logging Is Not Enough</h2>
+          
+          <div class="s4-container">
+            
+            <!-- 1. Analytical Matrix -->
+            <div class="s4-matrix">
+              <div class="s4-matrix-header">
+                <div class="s4-m-col">CONVENTIONAL APPROACH</div>
+                <div class="s4-m-col s4-m-center">LIMITATION</div>
+                <div class="s4-m-col">FORENSIC REQUIREMENT</div>
+              </div>
+              
+              <div class="s4-matrix-row">
+                <div class="s4-m-cell s4-m-col1">Local database / logs</div>
+                <div class="s4-m-cell s4-m-center s4-m-limitation">
+                  Evidence remains dependent on the original system
+                  <div class="s4-lim-marker"></div>
+                </div>
+                <div class="s4-m-cell s4-m-req">Independent reference</div>
+              </div>
+              
+              <div class="s4-matrix-row alt-row">
+                <div class="s4-m-cell s4-m-col1">Mutable records</div>
+                <div class="s4-m-cell s4-m-center s4-m-limitation">
+                  Records may be changed after collection
+                  <div class="s4-lim-marker"></div>
+                </div>
+                <div class="s4-m-cell s4-m-req">Post-collection integrity verification</div>
+              </div>
+
+              <div class="s4-matrix-row">
+                <div class="s4-m-cell s4-m-col1">Centralized trust</div>
+                <div class="s4-m-cell s4-m-center s4-m-limitation">
+                  Verification depends on the same trust domain
+                  <div class="s4-lim-marker"></div>
+                </div>
+                <div class="s4-m-cell s4-m-req">External verification path</div>
+              </div>
+
+              <div class="s4-matrix-row alt-row">
+                <div class="s4-m-cell s4-m-col1">Telemetry collection</div>
+                <div class="s4-m-cell s4-m-center s4-m-limitation">
+                  Raw telemetry is not necessarily preserved as forensic evidence
+                  <div class="s4-lim-marker"></div>
+                </div>
+                <div class="s4-m-cell s4-m-req">Forensic evidence preservation</div>
+              </div>
+            </div>
+
+            <!-- 2. Where the gap appears & Research Gap Statement -->
+            <div class="s4-gap-analysis">
+              <div class="s4-gap-label">WHERE THE GAP APPEARS</div>
+              
+              <div class="s4-gap-sequence">
+                <div class="s4-seq-node">EVENT RECORDED</div>
+                <div class="s4-seq-arrow">→</div>
+                <div class="s4-seq-node s4-seq-alert">SYSTEM COMPROMISED</div>
+                <div class="s4-seq-arrow">→</div>
+                <div class="s4-seq-node">RECORD QUESTIONED</div>
+              </div>
+
+              <div class="s4-gap-question">
+                HOW CAN THE PRESERVED RECORD BE VERIFIED LATER?
+              </div>
+
+              <div class="s4-gap-statement">
+                The research gap is the absence of an <span class="s4-hl">independent mechanism</span><br>
+                for <span class="s4-hl">later verification</span> of preserved IoT evidence.
+              </div>
+            </div>
+
+            <!-- 3. Convergence -->
+            <div class="s4-convergence-tree">
+              <div class="s4-conv-domains">
+                <div class="s4-conv-d">IoT Security</div>
+                <div class="s4-conv-d">Digital Forensics</div>
+                <div class="s4-conv-d">Blockchain</div>
+              </div>
+              <div class="s4-conv-svg">
+                <svg viewBox="0 0 100 120" width="100" height="120">
+                  <path d="M 0 15 L 40 15 L 40 60 L 90 60" fill="none" stroke="var(--border-dark)" stroke-width="2"/>
+                  <path d="M 0 60 L 90 60" fill="none" stroke="var(--border-dark)" stroke-width="2"/>
+                  <path d="M 0 105 L 40 105 L 40 60" fill="none" stroke="var(--border-dark)" stroke-width="2"/>
+                  <polygon points="88,56 96,60 88,64" fill="var(--border-dark)"/>
+                  <circle cx="40" cy="60" r="4" fill="var(--orange-accent)"/>
+                </svg>
+              </div>
+              <div class="s4-conv-target">
+                CHAINFORENSICS
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ==============================================================
+             SLIDE 05: INTERNET OF THINGS (IoT FOUNDATION)
+             Visual: IoT Architecture + Fundamentals + CF Mapping
+             ============================================================== -->
+        <section class="slide" id="slide-05" data-slide="5">
+          <h2 class="slide-05-title">Internet of Things</h2>
+          <div class="slide-05-subtitle">Connected physical devices collect, communicate and exchange data with digital systems</div>
+          
+          <div class="s5-container">
+            
+            <!-- 1. Architecture -->
+            <div class="s5-architecture">
+              
+              <!-- Zone 1 -->
+              <div class="s5-arch-node">
+                <div class="s5-node-head">01 / DEVICES & SENSORS</div>
+                <div class="s5-node-role">Sense the physical environment and generate data</div>
+                <div class="s5-node-list">
+                  <span>Temperature</span>
+                  <span>Motion</span>
+                  <span>Humidity</span>
+                  <span>Light</span>
+                </div>
+                <div class="s5-node-anno">Physical world &rarr; Digital data</div>
+              </div>
+              
+              <!-- Connector 1 -->
+              <div class="s5-connector">
+                <div class="s5-conn-line"></div>
+                <div class="s5-conn-label">DATA CAPTURE</div>
+                <div class="s5-conn-arrow"></div>
+              </div>
+
+              <!-- Zone 2 -->
+              <div class="s5-arch-node">
+                <div class="s5-node-head">02 / GATEWAY / EDGE</div>
+                <div class="s5-node-role">Process, filter and forward device data</div>
+                <div class="s5-node-anno">Local processing &bull; Connectivity &bull; Data forwarding</div>
+              </div>
+
+              <!-- Connector 2 -->
+              <div class="s5-connector">
+                <div class="s5-conn-line"></div>
+                <div class="s5-conn-label">DATA TRANSPORT</div>
+                <div class="s5-conn-arrow"></div>
+              </div>
+
+              <!-- Zone 3 -->
+              <div class="s5-arch-node">
+                <div class="s5-node-head">03 / CLOUD / PLATFORM</div>
+                <div class="s5-node-role">Store, manage and analyze IoT data</div>
+                <div class="s5-node-anno">Data storage &bull; Processing &bull; Analytics</div>
+              </div>
+
+              <!-- Connector 3 -->
+              <div class="s5-connector">
+                <div class="s5-conn-line"></div>
+                <div class="s5-conn-label">DATA SERVICES</div>
+                <div class="s5-conn-arrow"></div>
+              </div>
+
+              <!-- Zone 4 -->
+              <div class="s5-arch-node">
+                <div class="s5-node-head">04 / APPLICATIONS & USERS</div>
+                <div class="s5-node-role">Consume IoT data through applications and services</div>
+                <div class="s5-node-anno">Monitoring &bull; Visualization &bull; Decision support</div>
+              </div>
+              
+            </div>
+
+            <!-- 2. Fundamentals -->
+            <div class="s5-fundamentals">
+              
+              <div class="s5-fund-left">
+                <div class="s5-section-label">WHAT DEFINES IoT?</div>
+                <div class="s5-def-grid">
+                  <div class="s5-def-item">
+                    <div class="s5-def-title">CONNECTED</div>
+                    <div class="s5-def-desc">Physical devices communicate with digital systems.</div>
+                  </div>
+                  <div class="s5-def-item">
+                    <div class="s5-def-title">SENSING</div>
+                    <div class="s5-def-desc">Sensors continuously capture information from the environment.</div>
+                  </div>
+                  <div class="s5-def-item">
+                    <div class="s5-def-title">DATA EXCHANGE</div>
+                    <div class="s5-def-desc">Device data moves through communication and computing layers.</div>
+                  </div>
+                  <div class="s5-def-item">
+                    <div class="s5-def-title">DISTRIBUTED</div>
+                    <div class="s5-def-desc">Devices, gateways, platforms and applications operate as interconnected components.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="s5-fund-right">
+                <div class="s5-section-label">DEVICES & SENSORS</div>
+                <table class="s5-tech-table">
+                  <thead>
+                    <tr>
+                      <th>Component</th>
+                      <th>Role</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="s5-td-strong">Device</td>
+                      <td>Performs sensing/communication</td>
+                      <td>ESP32</td>
+                    </tr>
+                    <tr>
+                      <td class="s5-td-strong">Sensor</td>
+                      <td>Captures physical condition</td>
+                      <td>Temperature</td>
+                    </tr>
+                    <tr>
+                      <td class="s5-td-strong">Edge/Gateway</td>
+                      <td>Processes and forwards data</td>
+                      <td>Gateway</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 3. ChainForensics Mapping -->
+            <div class="s5-mapping">
+              <div class="s5-map-label">CHAINFORENSICS MAPPING</div>
+              <div class="s5-map-path">
+                <span class="s5-m-node">Sensors</span>
+                <span class="s5-m-arrow">&rarr;</span>
+                <span class="s5-m-node">ESP32</span>
+                <span class="s5-m-arrow">&rarr;</span>
+                <span class="s5-m-node">MQTT</span>
+                <span class="s5-m-arrow">&rarr;</span>
+                <span class="s5-m-node s5-m-hl">Evidence Gateway</span>
+              </div>
+              <div class="s5-map-desc">
+                Security-relevant telemetry &rarr; Structured security event
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ==============================================================
+             SLIDE 06: IoT SECURITY: THREATS & ATTACK SURFACE
+             Visual: Attack-surface model + Security requirements matrix
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 06: IoT SECURITY: THREATS & ATTACK SURFACE (V2)
+             ============================================================== -->
+        <section class="slide" id="slide-06" data-slide="6">
+          <h2 class="s6v2-title">IoT Security: Where Can an Attack Occur?</h2>
+          <div class="s6v2-subtitle">IoT expands the attack surface across devices, communication channels and data infrastructure.</div>
+          
+          <div class="s6v2-container">
+            
+            <!-- Three Columns Container -->
+            <div class="s6v2-cols-wrapper">
+              
+              <!-- Column 1: Device -->
+              <div class="s6v2-col">
+                <div class="s6v2-col-header">01 / DEVICE LAYER</div>
+                
+                <div class="s6v2-section-head">ASSETS</div>
+                <ul class="s6v2-list">
+                  <li>Device Identity</li>
+                  <li>Sensors</li>
+                  <li>Firmware</li>
+                  <li>Physical Interface</li>
+                </ul>
+                
+                <div class="s6v2-section-head s6v2-txt-org s6v2-bt-org">ATTACK VECTORS</div>
+                <ul class="s6v2-list">
+                  <li>Device Spoofing</li>
+                  <li>Physical Tampering</li>
+                  <li>Firmware / State Tamper</li>
+                </ul>
+                
+                <div class="s6v2-section-head">IMPACT</div>
+                <div class="s6v2-impact">Signal authenticity can be compromised.</div>
+              </div>
+
+              <!-- Column 2: Communication -->
+              <div class="s6v2-col">
+                <div class="s6v2-col-header">02 / COMMUNICATION LAYER</div>
+                
+                <div class="s6v2-section-head">ASSETS</div>
+                <ul class="s6v2-list">
+                  <li>MQTT Messages</li>
+                  <li>Event Sequence</li>
+                  <li>Device Packets</li>
+                </ul>
+                
+                <div class="s6v2-section-head s6v2-txt-org s6v2-bt-org">ATTACK VECTORS</div>
+                <ul class="s6v2-list">
+                  <li>Replay</li>
+                  <li>Message Manipulation</li>
+                  <li>Sequence Disruption</li>
+                </ul>
+                
+                <div class="s6v2-section-head">IMPACT</div>
+                <div class="s6v2-impact">Transit integrity and event ordering can be disrupted.</div>
+              </div>
+
+              <!-- Column 3: Backend -->
+              <div class="s6v2-col">
+                <div class="s6v2-col-header">03 / DATA / BACKEND LAYER</div>
+                
+                <div class="s6v2-section-head">ASSETS</div>
+                <ul class="s6v2-list">
+                  <li>Telemetry Database</li>
+                  <li>System Logs</li>
+                  <li>Audit Records</li>
+                </ul>
+                
+                <div class="s6v2-section-head s6v2-txt-org s6v2-bt-org">ATTACK VECTORS</div>
+                <ul class="s6v2-list">
+                  <li>Record Modification</li>
+                  <li>Selective Deletion</li>
+                  <li>Timestamp Manipulation</li>
+                </ul>
+                
+                <div class="s6v2-section-head">IMPACT</div>
+                <div class="s6v2-impact">Post-incident evidence can become difficult to verify.</div>
+              </div>
+
+            </div>
+
+            <!-- Security Requirements -->
+            <div class="s6v2-req-wrapper">
+              <div class="s6v2-req-label">CORE IoT SECURITY REQUIREMENTS</div>
+              <div class="s6v2-req-items">
+                <span class="s6v2-req-normal">CONFIDENTIALITY</span>
+                <span class="s6v2-req-dot">&bull;</span>
+                <div class="s6v2-req-hl-box">
+                  <div class="s6v2-req-cf">CHAINFORENSICS FOCUS</div>
+                  <span class="s6v2-req-hl">INTEGRITY</span>
+                </div>
+                <span class="s6v2-req-dot">&bull;</span>
+                <span class="s6v2-req-normal">AVAILABILITY</span>
+                <span class="s6v2-req-dot">&bull;</span>
+                <span class="s6v2-req-normal">IDENTITY</span>
+              </div>
+              <div class="s6v2-req-def">
+                <strong>Integrity:</strong> detect unauthorized modification of records and evidence.
+              </div>
+            </div>
+
+            <!-- Transition -->
+            <div class="s6v2-transition-wrapper">
+              <div class="s6v2-flow">
+                <span>IoT Threat</span> &rarr; <span>Security Event</span> &rarr; <span>Evidence</span> &rarr; <span class="s6v2-txt-org">Forensic Verification</span>
+              </div>
+              <div class="s6v2-trans-desc">
+                <strong>Security controls protect the system; ChainForensics focuses on preserving and verifying the resulting security evidence.</strong>
+              </div>
+            </div>
+
+          </div>
+          
+          <div class="s6v2-slide-num">06 / 25</div>
+        </section>
+
+        <!-- ==============================================================
+             SLIDE 07: BLOCKCHAIN FUNDAMENTALS
+             Visual: Construction flow + Concepts + Evidence relevance
+             ============================================================== -->
+        <section class="slide" id="slide-07" data-slide="7">
+          <h2 class="slide-07-title">Blockchain Fundamentals</h2>
+          <div class="slide-07-subtitle">A distributed ledger maintains an ordered, cryptographically linked history of committed data</div>
+          
+          <div class="s7-container">
+            
+            <!-- 1. Definition -->
+            <div class="s7-definition">
+              <span class="s7-def-label">WHAT IS BLOCKCHAIN?</span>
+              <span class="s7-def-text">A blockchain is a distributed ledger in which transactions are recorded into an ordered chain of blocks and protected through cryptographic mechanisms.</span>
+            </div>
+
+            <!-- 2. Hero Visual: Construction Flow -->
+            <div class="s7-construction">
+              
+              <!-- Stage 1: Transaction -->
+              <div class="s7-stage s7-stage-tx">
+                <div class="s7-st-head">01 / TRANSACTION</div>
+                <div class="s7-tx-box">
+                  <div class="s7-tx-title">DATA</div>
+                  <div class="s7-tx-field">eventId</div>
+                  <div class="s7-tx-field">type</div>
+                  <div class="s7-tx-field">value</div>
+                  <div class="s7-tx-field">timestamp</div>
+                </div>
+                <div class="s7-st-anno">Committed data</div>
+              </div>
+
+              <!-- Arrow -->
+              <div class="s7-conn-arrow">&rarr;</div>
+
+              <!-- Stage 2: Hash -->
+              <div class="s7-stage s7-stage-hash">
+                <div class="s7-st-head">02 / HASH</div>
+                <div class="s7-hash-flow">Input &rarr; Fixed-length digest</div>
+                <div class="s7-hash-val">0x7f83b165...</div>
+                <div class="s7-st-anno">One-way cryptographic fingerprint</div>
+              </div>
+
+              <!-- Arrow -->
+              <div class="s7-conn-arrow">&rarr;</div>
+
+              <!-- Stage 3 & 4 & 5: Blocks and Link -->
+              <div class="s7-blocks-container">
+                
+                <!-- Block N -->
+                <div class="s7-block-node">
+                  <div class="s7-st-head">03 / BLOCK N</div>
+                  <div class="s7-block-body">
+                    <div class="s7-block-title">BLOCK #1042</div>
+                    <div class="s7-block-field-group">
+                      <div class="s7-b-label">Previous Hash</div>
+                      <div class="s7-b-val">0x91af...</div>
+                    </div>
+                    <div class="s7-block-field-group">
+                      <div class="s7-b-label">Transaction / Data</div>
+                      <div class="s7-b-val">0x7f83...</div>
+                    </div>
+                    <div class="s7-block-field-group">
+                      <div class="s7-b-label">Merkle Root</div>
+                      <div class="s7-b-val">0xa83c...</div>
+                    </div>
+                    <div class="s7-block-field-group">
+                      <div class="s7-b-label">Timestamp</div>
+                      <div class="s7-b-val">T</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Hash Link -->
+                <div class="s7-hash-link">
+                  <div class="s7-hl-label">HASH LINK</div>
+                  <div class="s7-hl-line"></div>
+                  <div class="s7-hl-arrow"></div>
+                  <div class="s7-hl-desc">Hash(Block N) &rarr;<br>Previous Hash(Block N+1)</div>
+                  <div class="s7-hl-warn">Changing earlier block data changes its hash and breaks the expected linkage.</div>
+                </div>
+
+                <!-- Block N+1 -->
+                <div class="s7-block-node">
+                  <div class="s7-st-head">04 / BLOCK N+1</div>
+                  <div class="s7-block-body">
+                    <div class="s7-block-title">BLOCK #1043</div>
+                    <div class="s7-block-field-group">
+                      <div class="s7-b-label s7-hl-target">Previous Hash</div>
+                      <div class="s7-b-val s7-hl-target">= Hash(Block N)</div>
+                    </div>
+                    <div class="s7-block-field-group">
+                      <div class="s7-b-label">Transactions</div>
+                      <div class="s7-b-val">...</div>
+                    </div>
+                    <div class="s7-block-field-group">
+                      <div class="s7-b-label">Merkle Root</div>
+                      <div class="s7-b-val">...</div>
+                    </div>
+                    <div class="s7-block-field-group">
+                      <div class="s7-b-label">Timestamp</div>
+                      <div class="s7-b-val">...</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Arrow -->
+              <div class="s7-conn-arrow">&rarr;</div>
+
+              <!-- Stage 6: Distributed Ledger -->
+              <div class="s7-stage s7-stage-ledger">
+                <div class="s7-st-head s7-ledger-head">DISTRIBUTED LEDGER</div>
+                <div class="s7-ledger-nodes">
+                  <div class="s7-lnode">NODE 01</div>
+                  <div class="s7-lnet-line"></div>
+                  <div class="s7-lnode">NODE 02</div>
+                  <div class="s7-lnet-line"></div>
+                  <div class="s7-lnode">NODE 03</div>
+                </div>
+                <div class="s7-st-anno">Shared state across participating nodes</div>
+                <div class="s7-st-consensus">Consensus &rarr; agreement on accepted ledger state</div>
+              </div>
+
+            </div>
+
+            <!-- 3. Concepts Analysis Strip -->
+            <div class="s7-concepts">
+              <div class="s7-concept">
+                <div class="s7-c-head">01 / CRYPTOGRAPHIC HASH</div>
+                <div class="s7-c-text">Fixed-length digest derived from input data.</div>
+                <div class="s7-c-mech">Mechanism: <span>Integrity comparison</span></div>
+              </div>
+              <div class="s7-concept">
+                <div class="s7-c-head">02 / BLOCK STRUCTURE</div>
+                <div class="s7-c-text">Groups transactions with ordering and metadata.</div>
+                <div class="s7-c-mech">Mechanism: <span>Hash-linked history</span></div>
+              </div>
+              <div class="s7-concept">
+                <div class="s7-c-head">03 / DISTRIBUTED LEDGER</div>
+                <div class="s7-c-text">Maintains ledger state across participating nodes.</div>
+                <div class="s7-c-mech">Mechanism: <span>Independent distributed reference</span></div>
+              </div>
+              <div class="s7-concept s7-c-sc">
+                <div class="s7-c-head">04 / SMART CONTRACT</div>
+                <div class="s7-c-text">Programmatic logic executed by a blockchain network.</div>
+                <div class="s7-c-mech">Mechanism: <span>Deterministic evidence-registration rules</span></div>
+                <div class="s7-sc-visual">INPUT &darr; CONTRACT LOGIC &darr; STATE CHANGE</div>
+              </div>
+            </div>
+
+            <!-- 4. Why This Matters -->
+            <div class="s7-relevance">
+              <div class="s7-rel-header">WHY THIS MATTERS FOR EVIDENCE</div>
+              <div class="s7-rel-main">
+                A blockchain does not need to contain the complete IoT evidence. A <span class="s7-hl">compact cryptographic commitment</span> can serve as an <span class="s7-hl">independent reference</span> against which preserved evidence can later be checked.
+              </div>
+              
+              <div class="s7-rel-split">
+                <div class="s7-rs-left">
+                  <div class="s7-rs-col">
+                    <div class="s7-rs-label">BLOCKCHAIN STORES</div>
+                    <div class="s7-rs-val">Cryptographic commitment</div>
+                  </div>
+                  <div class="s7-rs-col">
+                    <div class="s7-rs-label">OFF-CHAIN SYSTEM STORES</div>
+                    <div class="s7-rs-val">Complete evidence payload</div>
+                  </div>
+                </div>
+                <div class="s7-rs-right">
+                  <div class="s7-rs-flow">Evidence &rarr; Hash &rarr; Blockchain</div>
+                  <div class="s7-rs-flow">Evidence &rarr; Preservation Storage</div>
+                </div>
+              </div>
+
+              <!-- Notes at the very bottom -->
+              <div class="s7-notes-row">
+                <div class="s7-note">Blockchain provides a trusted historical reference for what was committed; it does not independently prove that the physical event occurred.</div>
+                <div class="s7-note">Evidence hash &ne; blockchain transaction hash<br>Evidence hash &rarr; fingerprint of the committed payload | Transaction hash &rarr; identifier for the blockchain transaction</div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ==============================================================
+             SLIDE 08: DIGITAL FORENSICS
+             Visual: Forensic lifecycle + Evidence state transformation
+             ============================================================== -->
+        <section class="slide" id="slide-08" data-slide="8">
+          <h2 class="slide-08-title">Digital Forensics</h2>
+          <div class="slide-08-subtitle">A structured process for identifying, preserving, examining and interpreting digital evidence</div>
+          
+          <div class="s8-container">
+            
+            <!-- 1. Definition and Principles -->
+            <div class="s8-def-section">
+              <div class="s8-def-left">
+                <div class="s8-def-label">WHAT IS DIGITAL FORENSICS?</div>
+                <div class="s8-def-text">Digital forensics is the systematic identification, collection, preservation, examination, analysis and reporting of information from digital sources.</div>
+              </div>
+              <div class="s8-principles">
+                <div class="s8-principle">
+                  <div class="s8-pr-head">INTEGRITY</div>
+                  <div class="s8-pr-text">Evidence should remain consistent with its preserved state.</div>
+                </div>
+                <div class="s8-principle">
+                  <div class="s8-pr-head">PROVENANCE</div>
+                  <div class="s8-pr-text">The origin and handling history of evidence should remain traceable.</div>
+                </div>
+                <div class="s8-principle">
+                  <div class="s8-pr-head">CHAIN OF CUSTODY</div>
+                  <div class="s8-pr-text">Evidence handling and transitions should be documented throughout its lifecycle.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Hero Visual: Forensic Lifecycle -->
+            <div class="s8-lifecycle-container">
+              <div class="s8-lc-label">FORENSIC LIFECYCLE</div>
+              
+              <div class="s8-lc-rail">
+                
+                <div class="s8-stage">
+                  <div class="s8-st-head">01 / IDENTIFY</div>
+                  <div class="s8-st-sub">Scoping</div>
+                  <div class="s8-st-desc">Locate relevant evidence sources.</div>
+                  <div class="s8-st-anno">Devices &bull; Communication &bull; Storage</div>
+                </div>
+
+                <div class="s8-lc-arrow">&rarr;</div>
+
+                <div class="s8-stage">
+                  <div class="s8-st-head">02 / COLLECT</div>
+                  <div class="s8-st-sub">Acquisition</div>
+                  <div class="s8-st-desc">Acquire relevant digital information while preserving the original state as far as practicable.</div>
+                </div>
+
+                <div class="s8-lc-arrow s8-arrow-hl">&rarr;</div>
+
+                <div class="s8-stage s8-stage-hl">
+                  <div class="s8-st-tag">CHAINFORENSICS FOCUS</div>
+                  <div class="s8-st-head">03 / PRESERVE</div>
+                  <div class="s8-st-sub">Evidence Protection</div>
+                  <div class="s8-st-desc">Protect evidence from alteration and maintain its provenance for later examination.</div>
+                </div>
+
+                <div class="s8-lc-arrow s8-arrow-hl">&rarr;</div>
+
+                <div class="s8-stage">
+                  <div class="s8-st-head">04 / EXAMINE</div>
+                  <div class="s8-st-sub">Inspection</div>
+                  <div class="s8-st-desc">Extract and inspect relevant evidence attributes.</div>
+                  <div class="s8-st-anno">Payload &bull; Sequence &bull; Timestamp</div>
+                </div>
+
+                <div class="s8-lc-arrow">&rarr;</div>
+
+                <div class="s8-stage">
+                  <div class="s8-st-head">05 / ANALYZE</div>
+                  <div class="s8-st-sub">Correlation</div>
+                  <div class="s8-st-desc">Interpret evidence and correlate events, context and timelines.</div>
+                  <div class="s8-st-anno">Timeline &bull; Context &bull; Correlation</div>
+                </div>
+
+                <div class="s8-lc-arrow">&rarr;</div>
+
+                <div class="s8-stage">
+                  <div class="s8-st-head">06 / REPORT</div>
+                  <div class="s8-st-sub">Findings</div>
+                  <div class="s8-st-desc">Document the examination and communicate the resulting findings.</div>
+                </div>
+
+              </div>
+
+              <!-- Pivot explanation under PRESERVE -->
+              <div class="s8-pivot-expl">
+                <div>Evidence may be collected at one point in time and examined later.</div>
+                <div>Preservation protects the relationship between the captured state and the state examined later.</div>
+              </div>
+            </div>
+
+            <!-- 3. Transformation & IoT Context -->
+            <div class="s8-lower-split">
+              
+              <!-- Left: State transformation -->
+              <div class="s8-trans-box">
+                <div class="s8-tb-head">EVIDENCE STATE TRANSFORMATION</div>
+                <div class="s8-trans-flow">
+                  <div class="s8-tf-node">Raw Digital Source</div>
+                  <div class="s8-tf-arr">&darr;</div>
+                  <div class="s8-tf-node">Relevant Event</div>
+                  <div class="s8-tf-arr">&darr;</div>
+                  <div class="s8-tf-node s8-tf-hl">Preserved Evidence</div>
+                  <div class="s8-tf-arr">&darr;</div>
+                  <div class="s8-tf-node">Examination &rarr; Finding</div>
+                </div>
+                <div class="s8-tf-note">Raw telemetry &ne; automatically forensic evidence<br>Relevant security event + contextual preservation &rarr; forensic evidence</div>
+              </div>
+
+              <!-- Right: IoT connection -->
+              <div class="s8-iot-box">
+                <div class="s8-tb-head">WHY THIS MATTERS IN IoT</div>
+                <div class="s8-iot-content">
+                  <div class="s8-iot-sources">
+                    <div class="s8-is-node">Sensors</div>
+                    <div class="s8-is-arr">&darr;</div>
+                    <div class="s8-is-node">Edge Device</div>
+                    <div class="s8-is-arr">&darr;</div>
+                    <div class="s8-is-node">Communication</div>
+                    <div class="s8-is-arr">&darr;</div>
+                    <div class="s8-is-node">Gateway &rarr; Backend &rarr; <span class="s8-hl-text">Digital Evidence</span></div>
+                  </div>
+                  <div class="s8-iot-table-wrap">
+                    <table class="s8-table">
+                      <tr>
+                        <th>Forensic Property</th>
+                        <th>What it protects</th>
+                      </tr>
+                      <tr>
+                        <td>Integrity</td>
+                        <td>Consistency of preserved evidence</td>
+                      </tr>
+                      <tr>
+                        <td>Provenance</td>
+                        <td>Origin and handling history</td>
+                      </tr>
+                      <tr>
+                        <td>Chain of Custody</td>
+                        <td>Documented evidence transitions</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- 4. Project Bridge -->
+            <div class="s8-bridge">
+              <div class="s8-bridge-top">
+                <div class="s8-bridge-head">CHAINFORENSICS APPLICATION</div>
+                <div class="s8-bridge-flow">IoT Event &rarr; Digital Evidence &rarr; <span class="s8-hl-text">Preservation</span> &rarr; Integrity Verification</div>
+              </div>
+              <div class="s8-bridge-desc">The forensic challenge is not only collecting an IoT event &mdash; it is preserving enough information to determine whether the evidence examined later corresponds to the evidence originally captured.</div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ==============================================================
+             SLIDE 09: LITERATURE REVIEW
+             Visual: Literature Matrix + Synthesis
+             ============================================================== -->
+        <section class="slide" id="slide-09" data-slide="9">
+          <h2 class="slide-09-title">Literature Review</h2>
+          <div class="slide-09-subtitle">Existing research connects IoT forensics with blockchain, but approaches differ in evidence handling, scope and verification strategy</div>
+          
+          <div class="s9-container">
+            
+            <!-- 1. Literature Matrix -->
+            <div class="s9-matrix-container">
+              <table class="s9-matrix">
+                <thead>
+                  <tr>
+                    <th class="s9-col-study">STUDY / APPROACH</th>
+                    <th class="s9-col-tick">IoT</th>
+                    <th class="s9-col-tick">BLOCKCHAIN</th>
+                    <th class="s9-col-tick">FORENSICS</th>
+                    <th class="s9-col-focus">EVIDENCE FOCUS</th>
+                    <th class="s9-col-scope">KEY LIMITATION / SCOPE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="s9-col-study">
+                      <div class="s9-study-name">Ryu et al.</div>
+                      <div class="s9-study-sub">IoT DF Framework</div>
+                    </td>
+                    <td class="s9-col-tick"><span class="s9-tick">&check;</span></td>
+                    <td class="s9-col-tick"><span class="s9-tick">&check;</span></td>
+                    <td class="s9-col-tick"><span class="s9-tick">&check;</span></td>
+                    <td class="s9-col-focus">Evidence management / chain of custody</td>
+                    <td class="s9-col-scope">Framework-oriented; broad IoT forensic architecture</td>
+                  </tr>
+                  <tr>
+                    <td class="s9-col-study">
+                      <div class="s9-study-name">Kumar et al.</div>
+                      <div class="s9-study-sub">IoF &bull; 2021</div>
+                    </td>
+                    <td class="s9-col-tick"><span class="s9-tick">&check;</span></td>
+                    <td class="s9-col-tick"><span class="s9-tick">&check;</span></td>
+                    <td class="s9-col-tick"><span class="s9-tick">&check;</span></td>
+                    <td class="s9-col-focus">Case chain / evidence chain / custody</td>
+                    <td class="s9-col-scope">Transparency, distributed investigation and cross-border scenarios</td>
+                  </tr>
+                  <tr>
+                    <td class="s9-col-study">
+                      <div class="s9-study-name">Akinbi et al.</div>
+                      <div class="s9-study-sub">SLR &bull; 2022</div>
+                    </td>
+                    <td class="s9-col-tick"><span class="s9-tick">&check;</span></td>
+                    <td class="s9-col-tick"><span class="s9-tick">&check;</span></td>
+                    <td class="s9-col-tick"><span class="s9-tick">&check;</span></td>
+                    <td class="s9-col-focus">Integrity / provenance / traceability / verification</td>
+                    <td class="s9-col-scope">Systematic review; not a single implemented platform</td>
+                  </tr>
+                  <tr>
+                    <td class="s9-col-study">
+                      <div class="s9-study-name">Unified IoT DF</div>
+                      <div class="s9-study-sub">2023</div>
+                    </td>
+                    <td class="s9-col-tick"><span class="s9-tick">&check;</span></td>
+                    <td class="s9-col-tick"><span class="s9-tick">&check;</span></td>
+                    <td class="s9-col-tick"><span class="s9-tick">&check;</span></td>
+                    <td class="s9-col-focus">Authenticity / integrity / privacy</td>
+                    <td class="s9-col-scope">Holistic platform; scalability and performance evaluation</td>
+                  </tr>
+                  <tr>
+                    <td class="s9-col-study">
+                      <div class="s9-study-name">IIoT Blockchain DF</div>
+                      <div class="s9-study-sub">2024</div>
+                    </td>
+                    <td class="s9-col-tick"><span class="s9-tick">&check;</span></td>
+                    <td class="s9-col-tick"><span class="s9-tick">&check;</span></td>
+                    <td class="s9-col-tick"><span class="s9-tick">&check;</span></td>
+                    <td class="s9-col-focus">Evidence storage / retrieval / tracing</td>
+                    <td class="s9-col-scope">Industrial IoT specialization; evidence acquisition focus</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="s9-citations">Selected literature &bull; 2021&ndash;2024 | DOIs: 10.1016/j.future.2021.02.016 &bull; 10.1016/j.fsidi.2022.301470 &bull; 10.1016/j.iot.2023.100968 &bull; 10.1016/j.aej.2023.12.021</div>
+            </div>
+
+            <!-- 2. Synthesis -->
+            <div class="s9-synthesis">
+              <div class="s9-syn-label">WHAT THE LITERATURE ALREADY ESTABLISHES</div>
+              <div class="s9-syn-flow">
+                <div class="s9-syn-node">Blockchain can strengthen evidence integrity</div>
+                <div class="s9-syn-arrow">&rarr;</div>
+                <div class="s9-syn-node">Blockchain can support provenance and chain of custody</div>
+                <div class="s9-syn-arrow">&rarr;</div>
+                <div class="s9-syn-node">IoT forensics requires distributed evidence handling</div>
+              </div>
+            </div>
+
+            <!-- 3. Remaining Focus -->
+            <div class="s9-focus-section">
+              <div class="s9-focus-left">
+                <div class="s9-syn-label">REMAINING FOCUS</div>
+                <div class="s9-focus-statement">Independent verification of a preserved IoT evidence record</div>
+              </div>
+              <div class="s9-focus-right">
+                <div class="s9-fr-row">
+                  <span class="s9-fr-old">Existing Research</span> &rarr; <span class="s9-fr-val">Evidence Protection</span>
+                </div>
+                <div class="s9-fr-row">
+                  <span class="s9-fr-new">ChainForensics</span> &rarr; <span class="s9-fr-val s9-hl-text">Independent Evidence Verification</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ==============================================================
+             SLIDE 10: LITERATURE GAP / RESEARCH POSITIONING
+             Visual: Capability matrix + Gap decomposition
+             ============================================================== -->
+        <section class="slide" id="slide-10" data-slide="10">
+          <h2 class="slide-10-title">What Is Missing in Existing Approaches?</h2>
+          <div class="slide-10-subtitle">The research gap is not blockchain-based evidence protection itself&mdash;it is the specific verification path we implement</div>
+          
+          <div class="s10-container">
+            
+            <!-- 1. Capability Matrix -->
+            <div class="s10-matrix-wrapper">
+              <table class="s10-matrix">
+                <thead>
+                  <tr>
+                    <th class="s10-col-cap">CAPABILITY</th>
+                    <th class="s10-col-exist">EXISTING RESEARCH</th>
+                    <th class="s10-col-cf">CHAINFORENSICS</th>
+                    <th class="s10-col-pos">POSITIONING</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="s10-col-cap">IoT Evidence Collection</td>
+                    <td class="s10-col-exist"><span class="s10-tick">&check;</span></td>
+                    <td class="s10-col-cf"><span class="s10-tick">&check;</span></td>
+                    <td class="s10-col-pos">Structured security-event capture</td>
+                  </tr>
+                  <tr>
+                    <td class="s10-col-cap">Evidence Integrity</td>
+                    <td class="s10-col-exist"><span class="s10-tick">&check;</span></td>
+                    <td class="s10-col-cf"><span class="s10-tick">&check;</span></td>
+                    <td class="s10-col-pos">Deterministic evidence fingerprinting</td>
+                  </tr>
+                  <tr>
+                    <td class="s10-col-cap">Provenance / Chain of Custody</td>
+                    <td class="s10-col-exist"><span class="s10-tick">&check;</span></td>
+                    <td class="s10-col-cf"><span class="s10-tick">&check;</span></td>
+                    <td class="s10-col-pos">Explicit evidence provenance</td>
+                  </tr>
+                  <tr>
+                    <td class="s10-col-cap">Blockchain Evidence Anchoring</td>
+                    <td class="s10-col-exist"><span class="s10-tick">&check;</span></td>
+                    <td class="s10-col-cf"><span class="s10-tick">&check;</span></td>
+                    <td class="s10-col-pos">Compact cryptographic commitment</td>
+                  </tr>
+                  <tr class="s10-row-hl">
+                    <td class="s10-col-cap s10-cap-hl">Independent Verification</td>
+                    <td class="s10-col-exist s10-text-varies">Varies by framework and implementation</td>
+                    <td class="s10-col-cf"><span class="s10-tick s10-tick-hl">&check;</span></td>
+                    <td class="s10-col-pos s10-pos-hl">
+                      Preserved evidence &harr; external blockchain commitment
+                      <div class="s10-anno">PRIMARY RESEARCH FOCUS</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="s10-col-cap">Forensic Verdict</td>
+                    <td class="s10-col-exist s10-text-varies">Varies by approach</td>
+                    <td class="s10-col-cf"><span class="s10-tick">&check;</span></td>
+                    <td class="s10-col-pos">INTACT / ANOMALY / TAMPERED</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 2. Gap Decomposition & Research Gap Statement -->
+            <div class="s10-lower-section">
+              <div class="s10-gap-label">WHERE THE GAP REMAINS</div>
+              
+              <div class="s10-gap-flow">
+                <div class="s10-gf-box">
+                  <div class="s10-gf-head">PRESERVED EVIDENCE</div>
+                  <div class="s10-gf-desc">The record available for later examination</div>
+                </div>
+                <div class="s10-gf-connector"></div>
+                <div class="s10-gf-bridge">
+                  <div class="s10-gf-head s10-orange">RECONCILIATION</div>
+                  <div class="s10-gf-desc">Recalculate and compare</div>
+                  <div class="s10-hash-rel">HASH_LOCAL &harr; HASH_ANCHOR</div>
+                </div>
+                <div class="s10-gf-connector"></div>
+                <div class="s10-gf-box">
+                  <div class="s10-gf-head">TRUSTED REFERENCE</div>
+                  <div class="s10-gf-desc">Externally maintained cryptographic commitment</div>
+                </div>
+              </div>
+
+              <!-- Key Equation Details -->
+              <div class="s10-hash-details">
+                <span class="s10-hd-match">Match &rarr; evidence remains consistent with the anchored state</span>
+                <span class="s10-hd-sep">|</span>
+                <span class="s10-hd-mis">Mismatch &rarr; cryptographic integrity divergence</span>
+              </div>
+
+              <!-- 3. Gap Statement & 4. Convergence -->
+              <div class="s10-bottom-row">
+                <div class="s10-statement-box">
+                  <div class="s10-stat-main">Independent verification of a preserved IoT evidence record</div>
+                  <div class="s10-stat-sub">The preserved evidence is reconstructed and compared against an externally maintained cryptographic commitment rather than relying only on the original storage system.</div>
+                </div>
+                
+                <div class="s10-convergence-box">
+                  <div class="s10-conv-top">
+                    <span>IoT Security</span> + <span>Digital Forensics</span> + <span>Blockchain</span>
+                  </div>
+                  <div class="s10-conv-arr">&darr;</div>
+                  <div class="s10-conv-mid">Independent Evidence Verification</div>
+                  <div class="s10-conv-arr">&darr;</div>
+                  <div class="s10-conv-bot">ChainForensics</div>
+                  <div class="s10-conv-scope">Scope: integrity and later verification of preserved security evidence</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ==============================================================
+             SLIDE 11: IoT FORENSICS & EVIDENCE INTEGRITY
+             Visual: Three-column forensic model
+             ============================================================== -->
+        <section class="slide" id="slide-11" data-slide="11">
+          <div class="slide-eyebrow">&bull; 02 / PART 1 &mdash; THEORY</div>
+          <h2 class="slide-11-title">IoT Forensics &amp; Evidence Integrity</h2>
+          <div class="slide-11-subtitle">IoT evidence must be preserved with sufficient integrity and provenance for reliable forensic verification</div>
+          
+          <div class="s11-container">
+            
+            <!-- Core Principle Banner -->
+            <div class="s11-banner">
+              <div class="s11-bn-left">
+                <div class="s11-bn-labels">
+                  <span class="s11-bn-lbl-main">CORE PRINCIPLE</span>
+                  <span class="s11-bn-lbl-sub">EVIDENTIARY THRESHOLD</span>
+                </div>
+                <div class="s11-bn-stmt">&ldquo;A security event becomes forensic evidence only when its provenance and integrity can be preserved and examined.&rdquo;</div>
+              </div>
+              <div class="s11-bn-tags">
+                <span class="s11-tag">Distributed Sources</span>
+                <span class="s11-tag">Contextual Sealing</span>
+                <span class="s11-tag">Reconcilable State</span>
+              </div>
+            </div>
+
+            <!-- Three Columns -->
+            <div class="s11-cols">
+              
+              <!-- COL 1 -->
+              <div class="s11-col s11-col-1">
+                <div class="s11-ch-wrap">
+                  <div class="s11-col-head">WHY IoT FORENSICS?</div>
+                  <div class="s11-col-sub">DISTRIBUTED EVIDENCE MODEL</div>
+                </div>
+                <div class="s11-col-desc">IoT evidence is generated across multiple layers rather than originating from one static host.</div>
+                
+                <div class="s11-stream">
+                  <div class="s11-st-item"><span class="s11-st-num">01 SENSORS</span><span class="s11-st-txt">Analog / digital signal transduction</span></div>
+                  <div class="s11-st-arr">&darr;</div>
+                  <div class="s11-st-item"><span class="s11-st-num">02 ESP32 / EDGE</span><span class="s11-st-txt">Ephemeral buffer + device identity + sequence</span></div>
+                  <div class="s11-st-arr">&darr;</div>
+                  <div class="s11-st-item"><span class="s11-st-num">03 MQTT TRANSPORT</span><span class="s11-st-txt">Transit messages across network links</span></div>
+                  <div class="s11-st-arr">&darr;</div>
+                  <div class="s11-st-item"><span class="s11-st-num">04 GATEWAY NODE</span><span class="s11-st-txt">Validation + normalization + local handling</span></div>
+                  <div class="s11-st-arr">&darr;</div>
+                  <div class="s11-st-item"><span class="s11-st-num">05 BACKEND STORAGE</span><span class="s11-st-txt">Persistent evidence-related records</span></div>
+                </div>
+
+                <div class="s11-vuln-list">
+                  <div class="s11-vuln"><span class="s11-vl-head">VOLATILE</span><span class="s11-vl-txt">Edge buffers may disappear or be overwritten.</span></div>
+                  <div class="s11-vuln"><span class="s11-vl-head">HETEROGENEOUS</span><span class="s11-vl-txt">Different layers may represent the same event differently.</span></div>
+                  <div class="s11-vuln"><span class="s11-vl-head">MULTI-HOP</span><span class="s11-vl-txt">Evidence crosses several trust and transport boundaries.</span></div>
+                </div>
+
+                <div class="s11-callout">
+                  <div class="s11-co-lbl">FORENSIC IMPLICATION</div>
+                  <div class="s11-co-txt">IoT evidence requires end-to-end provenance rather than single-host trust.</div>
+                </div>
+              </div>
+
+              <!-- COL 2 -->
+              <div class="s11-col s11-col-2">
+                <div class="s11-ch-wrap">
+                  <div class="s11-col-head">THE FORENSIC SHIFT</div>
+                  <div class="s11-col-sub">EVENT &rarr; DIGITAL EVIDENCE</div>
+                </div>
+                <div class="s11-col-desc">Raw telemetry is not automatically forensic evidence. Relevant events must retain sufficient context to be examined later.</div>
+
+                <div class="s11-record">
+                  <div class="s11-rec-head">SECURITY EVENT</div>
+                  <div class="s11-rec-grid">
+                    <div><span class="s11-rg-lbl">ID</span><span class="s11-rg-val">EVT-00125</span></div>
+                    <div><span class="s11-rg-lbl">DEVICE</span><span class="s11-rg-val">ESP32-NODE-001</span></div>
+                    <div><span class="s11-rg-lbl">SEQUENCE</span><span class="s11-rg-val">#125</span></div>
+                    <div><span class="s11-rg-lbl">SENSOR</span><span class="s11-rg-val">MQ-2 Gas</span></div>
+                    <div><span class="s11-rg-lbl">READING</span><span class="s11-rg-val">712 ppm</span></div>
+                    <div><span class="s11-rg-lbl">TIMESTAMP</span><span class="s11-rg-val">T0</span></div>
+                    <div><span class="s11-rg-lbl">SEVERITY</span><span class="s11-rg-val s11-val-crit">CRITICAL</span></div>
+                  </div>
+                </div>
+
+                <div class="s11-shift-flow">
+                  <div class="s11-sf-item">RAW SECURITY EVENT</div>
+                  <div class="s11-sf-arr">&darr;</div>
+                  <div class="s11-sf-mid">PRESERVE + BIND CONTEXT</div>
+                  <div class="s11-sf-arr">&darr;</div>
+                  <div class="s11-sf-item">DIGITAL EVIDENCE</div>
+                </div>
+
+                <div class="s11-json">
+<pre>{
+  "id": "EVT-00125",
+  "dev": "ESP32-NODE-001",
+  "seq": 125,
+  "gas_ppm": 712,
+  "sev": "CRITICAL"
+}</pre>
+                </div>
+                
+                <div class="s11-col-stmt">Context transforms an isolated reading into an examinable security record.</div>
+              </div>
+
+              <!-- COL 3 -->
+              <div class="s11-col s11-col-3">
+                <div class="s11-ch-wrap">
+                  <div class="s11-col-head">WHAT MUST BE VERIFIED?</div>
+                  <div class="s11-col-sub">FORENSIC REQUIREMENTS</div>
+                </div>
+                
+                <table class="s11-req-table">
+                  <tr><th>PROPERTY</th><th>FORENSIC QUESTION</th></tr>
+                  <tr><td class="s11-rt-prop">INTEGRITY</td><td>Has the preserved evidence changed?</td></tr>
+                  <tr><td class="s11-rt-prop">PROVENANCE</td><td>Where did the evidence originate?</td></tr>
+                  <tr><td class="s11-rt-prop">IDENTITY</td><td>Which device generated the event?</td></tr>
+                  <tr><td class="s11-rt-prop">SEQUENCE</td><td>Is the event consistent with the expected order?</td></tr>
+                  <tr><td class="s11-rt-prop">TIMING</td><td>Is the recorded temporal context coherent?</td></tr>
+                  <tr><td class="s11-rt-prop">LIFECYCLE</td><td>Can the evidence path be reconstructed?</td></tr>
+                </table>
+
+                <div class="s11-recon-block">
+                  <div class="s11-rb-node">PRESERVED STATE</div>
+                  <div class="s11-rb-arr">&uarr;&darr;</div>
+                  <div class="s11-rb-node">LATER EXAMINATION</div>
+                  <div class="s11-rb-label">MUST REMAIN RECONCILABLE</div>
+                </div>
+
+                <div class="s11-col-stmt2">The forensic objective is to determine whether the evidence examined later remains consistent with the state preserved during collection.</div>
+              </div>
+            </div>
+
+            <!-- Bottom Application Strip -->
+            <div class="s11-app-strip">
+              <div class="s11-as-left">CHAINFORENSICS APPLICATION</div>
+              <div class="s11-as-mid">IoT Event &rarr; Digital Evidence &rarr; Preservation &rarr; Integrity Verification</div>
+              <div class="s11-as-right">THEORY &rarr; IMPLEMENTATION</div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ==============================================================
+             SLIDE 12: FROM THEORY TO CHAINFORENSICS
+             Visual: Convergence map
+             ============================================================== -->
+        <section class="slide" id="slide-12" data-slide="12">
+          <div class="slide-eyebrow">&bull; 03 / PART 1 &rarr; PART 2</div>
+          <h2 class="slide-12-title">From Theory to ChainForensics</h2>
+          <div class="slide-12-subtitle">The three domains converge around one requirement: preserve IoT security evidence so its integrity can be independently verified later</div>
+          
+          <div class="s12-container">
+            
+            <div class="s12-top-area">
+              <!-- Left: 4 Domain Streams -->
+              <div class="s12-left-streams">
+                <div class="s12-stream">
+                  <div class="s12-st-head-row">
+                    <span class="s12-st-title">01 / INTERNET OF THINGS</span>
+                    <span class="s12-st-role">ROLE: EVENT ORIGIN</span>
+                  </div>
+                  <div class="s12-st-req">OBSERVE THE PHYSICAL WORLD</div>
+                  <div class="s12-st-contrib">Connected devices and sensors generate security-relevant telemetry.</div>
+                  <div class="s12-st-bot-row">
+                    <span class="s12-st-chain">Sensor &rarr; ESP32 &rarr; Security Event</span>
+                    <span class="s12-st-out">Structured IoT Event</span>
+                  </div>
+                </div>
+                
+                <div class="s12-stream">
+                  <div class="s12-st-head-row">
+                    <span class="s12-st-title">02 / IoT SECURITY</span>
+                    <span class="s12-st-role">ROLE: SECURITY CONTEXT</span>
+                  </div>
+                  <div class="s12-st-req">DETECT SECURITY-RELEVANT CONDITIONS</div>
+                  <div class="s12-st-contrib">Device, communication and backend layers introduce distinct attack surfaces and integrity risks.</div>
+                  <div class="s12-st-bot-row">
+                    <span class="s12-st-chain">Threat Condition &rarr; Detection &rarr; Security Event</span>
+                    <span class="s12-st-out">Security-Relevant Evidence Candidate</span>
+                  </div>
+                </div>
+
+                <div class="s12-stream">
+                  <div class="s12-st-head-row">
+                    <span class="s12-st-title">03 / DIGITAL FORENSICS</span>
+                    <span class="s12-st-role">ROLE: FORENSIC VERIFICATION</span>
+                  </div>
+                  <div class="s12-st-req">PRESERVE AND EXAMINE DIGITAL EVIDENCE</div>
+                  <div class="s12-st-contrib">Evidence requires integrity, provenance and a reproducible examination path.</div>
+                  <div class="s12-st-bot-row">
+                    <span class="s12-st-chain">Collect &rarr; Preserve &rarr; Examine &rarr; Finding</span>
+                    <span class="s12-st-out">Forensically Examined Record</span>
+                  </div>
+                </div>
+
+                <div class="s12-stream">
+                  <div class="s12-st-head-row">
+                    <span class="s12-st-title">04 / BLOCKCHAIN</span>
+                    <span class="s12-st-role">ROLE: TRUSTED REFERENCE</span>
+                  </div>
+                  <div class="s12-st-req">MAINTAIN AN INDEPENDENT TRUSTED REFERENCE</div>
+                  <div class="s12-st-contrib">A cryptographic commitment can be anchored in a distributed ledger and checked later.</div>
+                  <div class="s12-st-bot-row">
+                    <span class="s12-st-chain">Evidence Digest &rarr; Ledger Commitment &rarr; Later Check</span>
+                    <span class="s12-st-out">Independent Cryptographic Reference</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Central Object -->
+              <div class="s12-right-center">
+                <div class="s12-cb-title">CHAINFORENSICS</div>
+                <div class="s12-cb-subtitle">BLOCKCHAIN-BACKED IoT FORENSIC EVIDENCE PLATFORM</div>
+                <div class="s12-cb-flow">Capture &rarr; Preserve &rarr; Anchor &rarr; Verify</div>
+                <div class="s12-cb-stmt">Preserve a security-relevant IoT event and later reconcile the preserved evidence against an independently anchored cryptographic commitment.</div>
+                
+                <div class="s12-pipeline">
+                  <div class="s12-pl-stage">
+                    <div class="s12-pl-num">01 CAPTURE</div>
+                    <div class="s12-pl-desc">IoT security event</div>
+                  </div>
+                  <div class="s12-pl-arr">&rarr;</div>
+                  <div class="s12-pl-stage">
+                    <div class="s12-pl-num">02 PRESERVE</div>
+                    <div class="s12-pl-desc">Structured evidence record</div>
+                  </div>
+                  <div class="s12-pl-arr">&rarr;</div>
+                  <div class="s12-pl-stage">
+                    <div class="s12-pl-num">03 ANCHOR</div>
+                    <div class="s12-pl-desc">Cryptographic commitment</div>
+                  </div>
+                  <div class="s12-pl-arr">&rarr;</div>
+                  <div class="s12-pl-stage s12-pl-verify">
+                    <div class="s12-pl-num">04 VERIFY</div>
+                    <div class="s12-pl-desc">Independent reconciliation</div>
+                  </div>
+                </div>
+
+                <div class="s12-distinction">
+                  <div class="s12-dist-row">
+                    <span class="s12-dist-lbl">WHAT BLOCKCHAIN CONTRIBUTES</span>
+                    <span class="s12-dist-txt">Trusted reference for the committed evidence state</span>
+                  </div>
+                  <div class="s12-dist-row">
+                    <span class="s12-dist-lbl">WHAT FORENSIC VERIFICATION CONTRIBUTES</span>
+                    <span class="s12-dist-txt">Detection of divergence between preserved evidence and the trusted reference</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Matrix & Focus -->
+            <div class="s12-bottom-area">
+              <div class="s12-matrix-wrap">
+                <table class="s12-matrix">
+                  <tr><th>DOMAIN</th><th>REQUIREMENT</th><th>CHAINFORENSICS RESPONSE</th></tr>
+                  <tr><td class="s12-td-domain">IoT</td><td>Capture distributed physical-world events</td><td>Structured security-event generation</td></tr>
+                  <tr><td class="s12-td-domain">IoT Security</td><td>Protect / detect integrity-relevant conditions</td><td>Security event context</td></tr>
+                  <tr><td class="s12-td-domain">Digital Forensics</td><td>Preserve and examine evidence</td><td>Evidence provenance + verification</td></tr>
+                  <tr><td class="s12-td-domain">Blockchain</td><td>Provide independent trusted reference</td><td>Cryptographic evidence anchoring</td></tr>
+                </table>
+              </div>
+              
+              <div class="s12-focus-wrap">
+                <div class="s12-fw-head">PRIMARY TECHNICAL FOCUS</div>
+                <div class="s12-fw-stmt">Independent verification of preserved IoT security evidence</div>
+                <div class="s12-fw-sub">The system does not rely solely on the original storage environment to determine whether the preserved record remains consistent.</div>
+              </div>
+            </div>
+
+
+          </div>
+        </section>
+
+        <!-- ==============================================================
+             SLIDE 13: CHAINFORENSICS SYSTEM ARCHITECTURE (V2)
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 13: CHAINFORENSICS — SYSTEM ARCHITECTURE (V3)
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 13: CHAINFORENSICS — SYSTEM ARCHITECTURE (V4)
+             ============================================================== -->
+        <section class="slide" id="slide-13" data-slide="13">
+          
+          <div class="s13v4-eyebrow">03 / PART 2 &mdash; PROJECT</div>
+          <h1 class="s13v4-title">ChainForensics &mdash; System Architecture</h1>
+          <div class="s13v4-subtitle">From IoT security-event generation to independent forensic verification</div>
+          
+          <div class="s13v4-main-container">
+            <div class="s13v4-mc-head">END-TO-END EVIDENCE ARCHITECTURE</div>
+            
+            <div class="s13v4-row-top">
+              <!-- 01 -->
+              <div class="s13v4-stage s13v4-stage-nav">
+                <div class="s13v4-s-num">01</div>
+                <div class="s13v4-s-title">IoT EDGE</div>
+                <div class="s13v4-s-role"><strong>ROLE</strong><br>Generate security-relevant events</div>
+                <div class="s13v4-s-tech"><strong>TECHNOLOGY</strong><br>ESP32 &bull; Sensors &bull; Security Event Engine</div>
+                <div class="s13v4-s-out"><strong>OUTPUT</strong><br>Structured Security Event</div>
+              </div>
+
+              <div class="s13v4-arr">&rarr;</div>
+
+              <!-- 02 -->
+              <div class="s13v4-stage s13v4-stage-nav">
+                <div class="s13v4-s-num">02</div>
+                <div class="s13v4-s-title">EVIDENCE INGESTION</div>
+                <div class="s13v4-s-role"><strong>ROLE</strong><br>Validate and create a deterministic evidence representation</div>
+                <div class="s13v4-s-tech"><strong>TECHNOLOGY</strong><br>Node.js / TypeScript<br>Zod &bull; RFC 8785 &bull; SHA-256</div>
+                <div class="s13v4-s-out"><strong>OUTPUT</strong><br>Evidence Digest</div>
+              </div>
+
+              <div class="s13v4-arr">&rarr;</div>
+
+              <!-- 03 -->
+              <div class="s13v4-stage s13v4-stage-nav">
+                <div class="s13v4-s-num">03</div>
+                <div class="s13v4-s-title">OFF-CHAIN PRESERVATION</div>
+                <div class="s13v4-s-role"><strong>ROLE</strong><br>Store the complete evidence payload</div>
+                <div class="s13v4-s-tech"><strong>TECHNOLOGY</strong><br>SQLite / Prisma<br>IPFS / Helia</div>
+                <div class="s13v4-s-out"><strong>OUTPUT</strong><br>Complete Evidence <span class="s13v4-tiny">FULL PAYLOAD</span></div>
+              </div>
+            </div>
+
+            <div class="s13v4-anno-text">
+              Complete evidence remains off-chain; only the cryptographic commitment is anchored on-chain.
+            </div>
+
+            <div class="s13v4-trust-boundary">
+              <div class="s13v4-tb-line"></div>
+              <div class="s13v4-tb-text">SEPARATE TRUST DOMAIN</div>
+              <div class="s13v4-tb-line"></div>
+            </div>
+
+            <div class="s13v4-row-bot">
+              <!-- 04 -->
+              <div class="s13v4-stage s13v4-stage-org">
+                <div class="s13v4-s-num s13v4-txt-org">04</div>
+                <div class="s13v4-s-title s13v4-txt-org">ON-CHAIN TRUST ANCHOR</div>
+                <div class="s13v4-s-role"><strong>ROLE</strong><br>Maintain an independent cryptographic reference</div>
+                <div class="s13v4-s-tech"><strong>TECHNOLOGY</strong><br>Ethereum / Hardhat<br>EvidenceRegistry.sol</div>
+                <div class="s13v4-s-out"><strong>OUTPUT</strong><br>Evidence Hash Commitment<br><span class="s13v4-tiny">COMPACT REFERENCE &bull; NOT COMPLETE EVIDENCE</span></div>
+              </div>
+
+              <div class="s13v4-arr">&rarr;</div>
+
+              <!-- 05 -->
+              <div class="s13v4-stage s13v4-stage-navorg">
+                <div class="s13v4-s-num s13v4-txt-org">05</div>
+                <div class="s13v4-s-title s13v4-txt-org">FORENSIC VERIFICATION</div>
+                <div class="s13v4-s-role"><strong>ROLE</strong><br>Reconstruct preserved evidence and reconcile it with the trusted commitment</div>
+                <div class="s13v4-s-recon">
+                  <div>PRESERVED EVIDENCE</div>
+                  <div>&darr;</div>
+                  <div>RECONSTRUCT</div>
+                  <div>&darr;</div>
+                  <div class="s13v4-hlha">HASH_LOCAL &harr; HASH_ANCHOR</div>
+                </div>
+                <div class="s13v4-s-out">
+                  <div class="s13v4-verdicts">
+                    <span class="s13v4-v-intact">INTACT</span> <span class="s13v4-v-sep">|</span>
+                    <span class="s13v4-v-anom">ANOMALY</span> <span class="s13v4-v-sep">|</span>
+                    <span class="s13v4-v-tamp">TAMPERED</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+
+
+          <!-- Slide number -->
+          <div class="s13v4-slide-num">13 / 25</div>
+
+        </section>
+
+                <!-- ==============================================================
+             SLIDE 14: IoT EDGE IMPLEMENTATION (RECOMPOSED)
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 14: IOT EDGE IMPLEMENTATION (V4)
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 14: IOT EDGE IMPLEMENTATION (V4)
+             ============================================================== -->
+        <section class="slide" id="slide-14" data-slide="14">
+          <div class="s14v4-eyebrow">03 / PART 2 &mdash; PROJECT</div>
+          <h2 class="s14v4-title">IoT Edge Implementation</h2>
+          <div class="s14v4-subtitle">The ESP32 converts sensor conditions and physical security events into structured security records.</div>
+          
+          <div class="s14v4-content">
+            <div class="s14v4-panels">
+              <!-- Column 1 -->
+              <div class="s14v4-panel" style="width: 31%;">
+                <div class="s14v4-p-head">
+                  <div class="s14v4-p-num">01 / PHYSICAL INPUTS</div>
+                  <div class="s14v4-p-sub">ESP32 MULTI-SENSOR EDGE</div>
+                </div>
+                
+                <table class="s14v4-table">
+                  <thead><tr><th>SENSOR</th><th>PURPOSE</th><th>PIN</th></tr></thead>
+                  <tbody>
+                    <tr><td>DHT22</td><td>Temperature / humidity</td><td>GPIO 4</td></tr>
+                    <tr><td>MQ-2</td><td>Gas / smoke</td><td>GPIO 34</td></tr>
+                    <tr><td>PIR</td><td>Motion</td><td>GPIO 27</td></tr>
+                    <tr><td>LDR</td><td>Light level</td><td>GPIO 32</td></tr>
+                    <tr><td>TAMPER</td><td>Enclosure state</td><td>GPIO 21</td></tr>
+                  </tbody>
+                </table>
+                
+                <div class="s14v4-tamper-note"><strong>Tamper switch &rarr; enclosure-state security event</strong></div>
+                
+                <div class="s14v4-edge-role">
+                  <div class="s14v4-role-head">EDGE ROLE</div>
+                  <div class="s14v4-role-text">Sense &rarr; evaluate &rarr; package security-relevant events</div>
+                </div>
+              </div>
+
+              <!-- Connector -->
+              <div class="s14v4-connector">&rarr;</div>
+
+              <!-- Column 2 -->
+              <div class="s14v4-panel" style="width: 34%;">
+                <div class="s14v4-p-head">
+                  <div class="s14v4-p-num">02 / EDGE PROCESSING</div>
+                  <div class="s14v4-p-sub">ESP32 + FreeRTOS</div>
+                </div>
+                
+                <div class="s14v4-rtos-flow">
+                  <div class="s14v4-rtos-box">SENSOR TASK</div>
+                  <div class="s14v4-rtos-arr">&darr;</div>
+                  <div class="s14v4-rtos-box">SECURITY ENGINE</div>
+                  <div class="s14v4-rtos-arr">&darr;</div>
+                  <div class="s14v4-rtos-box">EVENT QUEUE</div>
+                  <div class="s14v4-rtos-arr">&darr;</div>
+                  <div class="s14v4-rtos-box">MQTT DISPATCH</div>
+                </div>
+                
+                <div class="s14v4-rtos-desc">FreeRTOS separates sensing, event evaluation and network dispatch.</div>
+                
+                <div class="s14v4-rules-head">SECURITY EVENT RULES</div>
+                <table class="s14v4-table s14v4-rules-table">
+                  <thead><tr><th>INPUT</th><th>CONDITION</th><th>EVENT</th></tr></thead>
+                  <tbody>
+                    <tr><td>MQ-2</td><td><code>&gt; 450 ppm</code></td><td><code>GAS_SPIKE</code></td></tr>
+                    <tr><td>PIR</td><td><code>HIGH &bull; 22:00&ndash;06:00</code></td><td><code>PERIMETER</code></td></tr>
+                    <tr><td>TAMPER</td><td><code>OPEN</code></td><td><code>ENCLOSURE_OPEN</code></td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Connector -->
+              <div class="s14v4-connector">&rarr;</div>
+
+              <!-- Column 3 -->
+              <div class="s14v4-panel" style="width: 35%;">
+                <div class="s14v4-p-head s14v4-ph-org">
+                  <div class="s14v4-p-num s14v4-txt-org">03 / SECURITY EVENT</div>
+                  <div class="s14v4-p-sub s14v4-txt-org">STRUCTURED EDGE OUTPUT</div>
+                </div>
+                
+                <div class="s14v4-evt-id">EVT-00125</div>
+                
+                <div class="s14v4-evt-record">
+                  <div class="s14v4-er-row"><span>DEVICE</span><span>ESP32-NODE-001</span></div>
+                  <div class="s14v4-er-row"><span>SEQUENCE</span><span>125</span></div>
+                  <div class="s14v4-er-row"><span>TRIGGER</span><span>GAS_SPIKE</span></div>
+                  <div class="s14v4-er-row"><span>SENSOR</span><span>MQ-2</span></div>
+                  <div class="s14v4-er-row"><span>READING</span><span>712 ppm</span></div>
+                  <div class="s14v4-er-row"><span>SEVERITY</span><span class="s14v4-sev-crit">CRITICAL</span></div>
+                </div>
+                
+                <pre class="s14v4-json">
+{
+  "id":"EVT-00125",
+  "dev":"ESP32-NODE-001",
+  "seq":125,
+  "type":"GAS_SPIKE",
+  "gas_ppm":712,
+  "sev":"CRITICAL"
+}</pre>
+                
+                <div class="s14v4-mqtt-pub">Published via MQTT to the evidence gateway.</div>
+              </div>
+            </div>
+            
+            <div class="s14v4-telemetry-strip">
+              <div class="s14v4-ts-head">TELEMETRY &ne; FORENSIC EVIDENCE</div>
+              <div class="s14v4-ts-text">Routine sensor readings provide telemetry; security-relevant conditions are transformed into structured events for downstream evidence processing.</div>
+            </div>
+            
+            <div class="s14v4-mqtt-strip">
+              <div class="s14v4-ms-left">EDGE OUTPUT &rarr; MQTT &rarr; EVIDENCE GATEWAY</div>
+              <div class="s14v4-ms-right">QoS 1 &bull; <code>iot/security/events</code></div>
+            </div>
+          </div>
+          
+          <div class="s14v4-slide-num">14 / 24</div>
+        </section>
+
+        <!-- ==============================================================
+             SLIDE 15: EVIDENCE INGESTION & CANONICALIZATION
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 15: EVIDENCE INGESTION & CANONICALIZATION (V2)
+             ============================================================== -->
+        <section class="slide" id="slide-15" data-slide="15">
+          
+          <!-- Header -->
+          <div class="s15v2-eyebrow">&bull; PART 2 &mdash; PROJECT</div>
+          <h1 class="s15v2-title">Evidence Ingestion &amp; Canonicalization</h1>
+          <div class="s15v2-subtitle">The gateway validates security events, creates a deterministic representation, and prepares the evidence fingerprint.</div>
+
+          <div class="s15v2-pipeline-head">EVIDENCE INGESTION PIPELINE</div>
+          <div class="s15v2-pipeline-container">
+            
+            <div class="s15v2-stage">
+              <div class="s15v2-st-num">01 / RECEIVE</div>
+              <div class="s15v2-st-main">MQTT</div>
+              <div class="s15v2-st-tech">iot/security/events<br>QoS 1</div>
+              <div class="s15v2-st-note">Security event received from ESP32 edge</div>
+            </div>
+            
+            <div class="s15v2-sep">&rarr;</div>
+            
+            <div class="s15v2-stage">
+              <div class="s15v2-st-num">02 / VALIDATE</div>
+              <div class="s15v2-st-main">Zod Schema</div>
+              <div class="s15v2-st-tech">Required fields<br>Types<br>Value ranges</div>
+              <div class="s15v2-st-note">Invalid input &rarr; reject</div>
+            </div>
+            
+            <div class="s15v2-sep">&rarr;</div>
+            
+            <div class="s15v2-stage">
+              <div class="s15v2-st-num">03 / CANONICALIZE</div>
+              <div class="s15v2-st-main s15v2-txt-org">RFC 8785 JCS</div>
+              <div class="s15v2-st-tech">Deterministic<br>canonical bytes</div>
+              <div class="s15v2-st-note">Same valid input &rarr; same canonical representation</div>
+            </div>
+            
+            <div class="s15v2-sep">&rarr;</div>
+            
+            <div class="s15v2-stage">
+              <div class="s15v2-st-num">04 / FINGERPRINT</div>
+              <div class="s15v2-st-main">SHA-256</div>
+              <div class="s15v2-st-tech">256 bits<br>32 bytes</div>
+              <div class="s15v2-hash-box">
+                <div class="s15v2-hb-label">EVIDENCE HASH</div>
+                <div class="s15v2-hb-val">0xa8f913...c724</div>
+              </div>
+            </div>
+            
+            <div class="s15v2-sep">&rarr;</div>
+            
+            <div class="s15v2-stage">
+              <div class="s15v2-st-num">05 / RECORD</div>
+              <div class="s15v2-st-main s15v2-rec-main">EVT-00125</div>
+              <div class="s15v2-st-tech s15v2-rec-tech">HASH 0xa8f9...<br>CID bafybeic...</div>
+              <div class="s15v2-st-note">Structured evidence metadata</div>
+            </div>
+
+          </div>
+
+          <div class="s15v2-why-container">
+            <div class="s15v2-why-head">WHY CANONICALIZATION MATTERS</div>
+            <div class="s15v2-why-body">
+              <div class="s15v2-why-text">Equivalent JSON can have different byte representations. RFC 8785 JCS provides a standardized canonical representation so the same valid input is serialized consistently before hashing.</div>
+              <div class="s15v2-why-flow">
+                <span>SEMANTICALLY EQUIVALENT INPUT</span>
+                <span class="s15v2-why-arr">&rarr;</span>
+                <span class="s15v2-txt-org s15v2-bold">RFC 8785 JCS</span>
+                <span class="s15v2-why-arr">&rarr;</span>
+                <span>CANONICAL BYTES</span>
+                <span class="s15v2-why-arr">&rarr;</span>
+                <span class="s15v2-bold">SHA-256</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Final Statement -->
+          <div class="s15v2-final">VALIDATED EVENT &rarr; CANONICAL REPRESENTATION &rarr; EVIDENCE FINGERPRINT</div>
+
+          <!-- Slide number -->
+          <div class="s15v2-slide-num">15 / 24</div>
+
+        </section>
+
+        <!-- ==============================================================
+             SLIDE 16: EVIDENCE INGESTION & CRYPTOGRAPHIC FINGERPRINTING
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 16: EVIDENCE INGESTION & CRYPTOGRAPHIC FINGERPRINTING (V2)
+             ============================================================== -->
+        <section class="slide" id="slide-16" data-slide="16">
+          
+          <!-- Header -->
+          <div class="s16v2-eyebrow">&bull; PART 2 &mdash; PROJECT</div>
+          <h1 class="s16v2-title">Evidence Ingestion &amp; Cryptographic Fingerprinting</h1>
+          <div class="s16v2-subtitle">A validated event is canonicalized and fingerprinted with SHA-256 before evidence preservation and anchoring.</div>
+
+          <div class="s16v2-process">VALIDATE &rarr; CANONICALIZE &rarr; HASH &rarr; PRESERVE / ANCHOR</div>
+
+          <div class="s16v2-2cols">
+            
+            <!-- Col 1: EVIDENCE PROCESSING -->
+            <div class="s16v2-col">
+              <div class="s16v2-col-head">01 / EVIDENCE PROCESSING</div>
+              <div class="s16v2-col-body s16v2-ep-body">
+                
+                <div class="s16v2-step">
+                  <div class="s16v2-step-title">VALIDATED EVENT</div>
+                  <div class="s16v2-event-data">
+                    <div>EVT-00125</div>
+                    <div>ESP32-NODE-001</div>
+                    <div>GAS_SPIKE</div>
+                    <div>712 ppm</div>
+                    <div>CRITICAL</div>
+                  </div>
+                </div>
+                
+                <div class="s16v2-arr">&darr;</div>
+                
+                <div class="s16v2-step">
+                  <div class="s16v2-step-title">RFC 8785 JCS</div>
+                  <div class="s16v2-step-desc">Deterministic canonical representation</div>
+                </div>
+                
+                <div class="s16v2-arr">&darr;</div>
+                
+                <div class="s16v2-step s16v2-step-sha">
+                  SHA-256
+                </div>
+                
+                <div class="s16v2-arr">&darr;</div>
+                
+                <div class="s16v2-step s16v2-step-hash">
+                  <div class="s16v2-step-title s16v2-txt-org">EVIDENCE HASH</div>
+                  <div class="s16v2-hash-val">0xa8f913...c724</div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Col 2: DIGEST DIVERGENCE -->
+            <div class="s16v2-col">
+              <div class="s16v2-col-head">02 / DIGEST DIVERGENCE</div>
+              <div class="s16v2-col-body s16v2-div-body">
+                
+                <div class="s16v2-compare-grid">
+                  <div class="s16v2-cg-col">
+                    <div class="s16v2-cg-title">ORIGINAL</div>
+                    <div class="s16v2-cg-val">gas_ppm = 712</div>
+                    <div class="s16v2-arr">&darr;</div>
+                    <div class="s16v2-cg-hash s16v2-txt-org">a8f913...</div>
+                  </div>
+                  
+                  <div class="s16v2-cg-mid">
+                    <div class="s16v2-neq">&ne;</div>
+                  </div>
+                  
+                  <div class="s16v2-cg-col">
+                    <div class="s16v2-cg-title s16v2-txt-red">MODIFIED</div>
+                    <div class="s16v2-cg-val s16v2-txt-red">gas_ppm = 120</div>
+                    <div class="s16v2-arr s16v2-txt-red">&darr;</div>
+                    <div class="s16v2-cg-hash s16v2-txt-red">91d2e7...</div>
+                  </div>
+                </div>
+
+                <div class="s16v2-div-note">
+                  One changed field produces a different SHA-256 digest.
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class="s16v2-note">The hash fingerprints the evidence representation; it is not the evidence itself.</div>
+
+          <!-- Final Statement -->
+          <div class="s16v2-final">CANONICAL EVIDENCE &rarr; SHA-256 FINGERPRINT &rarr; READY FOR TRUST ANCHOR</div>
+
+          <!-- Slide number -->
+          <div class="s16v2-slide-num">16 / 24</div>
+
+        </section>
+
+        <!-- ==============================================================
+             SLIDE 17: EVIDENCE PRESERVATION & PROVENANCE
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 17: EVIDENCE PRESERVATION & PROVENANCE (V2)
+             ============================================================== -->
+        <section class="slide" id="slide-17" data-slide="17">
+          
+          <!-- Header -->
+          <div class="s17v2-eyebrow">&bull; PART 2 &mdash; PROJECT</div>
+          <h1 class="s17v2-title">Evidence Preservation &amp; Provenance</h1>
+          <div class="s17v2-subtitle">Complete evidence is preserved off-chain while provenance and a separate blockchain commitment support later verification.</div>
+
+          <div class="s17v2-process">GENERATE &rarr; PRESERVE &rarr; ANCHOR &rarr; VERIFY</div>
+
+          <div class="s17v2-2cols">
+            
+            <!-- Col 1: EVIDENCE PRESERVATION -->
+            <div class="s17v2-col">
+              <div class="s17v2-col-head">01 / EVIDENCE PRESERVATION</div>
+              <div class="s17v2-col-body">
+                <div class="s17v2-ce-title">Complete Evidence</div>
+                <div class="s17v2-ce-sub">The full canonical evidence payload remains off-chain.</div>
+                
+                <div class="s17v2-flow">
+                  <div class="s17v2-fl-val">EVT-00125</div>
+                  <div class="s17v2-fl-arr">&darr;</div>
+                  <div class="s17v2-fl-val">SQLite / Prisma + IPFS / Helia</div>
+                  <div class="s17v2-fl-arr">&darr;</div>
+                  <div class="s17v2-fl-val s17v2-txt-navy">Preserved Payload</div>
+                </div>
+
+                <div class="s17v2-db-grid">
+                  <div class="s17v2-db-row">
+                    <strong>SQLite / Prisma</strong><br>Metadata + retrieval context
+                  </div>
+                  <div class="s17v2-db-row">
+                    <strong>IPFS / Helia</strong><br>Content-addressed evidence payload
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Col 2: PROVENANCE RECORD -->
+            <div class="s17v2-col">
+              <div class="s17v2-col-head">02 / PROVENANCE RECORD</div>
+              <div class="s17v2-col-body s17v2-prov-body">
+                <div class="s17v2-rec-grid">
+                  <div class="s17v2-rg-row"><span class="s17v2-rg-key">Evidence ID</span><span class="s17v2-rg-val">EVT-00125</span></div>
+                  <div class="s17v2-rg-row"><span class="s17v2-rg-key">Device ID</span><span class="s17v2-rg-val">ESP32-NODE-001</span></div>
+                  <div class="s17v2-rg-row"><span class="s17v2-rg-key">Sequence</span><span class="s17v2-rg-val">125</span></div>
+                  <div class="s17v2-rg-row"><span class="s17v2-rg-key">Timestamp</span><span class="s17v2-rg-val">1788912000</span></div>
+                  <div class="s17v2-rg-row"><span class="s17v2-rg-key">Evidence Hash</span><span class="s17v2-rg-val s17v2-txt-org">0xa8f913&hellip;c724</span></div>
+                  <div class="s17v2-rg-row"><span class="s17v2-rg-key">Content CID</span><span class="s17v2-rg-val">bafybeic&hellip;9x2</span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- TRUST SEPARATION -->
+          <div class="s17v2-trust">
+            <div class="s17v2-trust-head">03 / TRUST SEPARATION</div>
+            <div class="s17v2-trust-body">
+              
+              <div class="s17v2-ts-flow">
+                <div class="s17v2-ts-box">
+                  <div class="s17v2-tsb-title">OFF-CHAIN</div>
+                  <div class="s17v2-tsb-desc">Complete evidence<br>IPFS / Helia</div>
+                </div>
+                
+                <div class="s17v2-ts-arr">
+                  <span>Separate trust domain</span>
+                  <div class="s17v2-tsa-line">&rarr;</div>
+                </div>
+                
+                <div class="s17v2-ts-box s17v2-ts-onchain">
+                  <div class="s17v2-tsb-title s17v2-txt-org">ON-CHAIN</div>
+                  <div class="s17v2-tsb-desc"><code>evidenceHash</code><br>Blockchain</div>
+                </div>
+              </div>
+
+              <div class="s17v2-ts-principle">
+                <strong>PROVENANCE &ne; BLOCKCHAIN</strong><br>
+                Provenance records the origin and handling context of evidence; blockchain provides an independent cryptographic reference for a committed state.
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Final Statement -->
+          <div class="s17v2-final">PRESERVE THE EVIDENCE &mdash; SEPARATE THE TRUST REFERENCE</div>
+
+          <!-- Slide number -->
+          <div class="s17v2-slide-num">17 / 24</div>
+
+        </section>
+
+
+        <!-- ==============================================================
+             SLIDE 18: BLOCKCHAIN EVIDENCE ANCHORING
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 18: BLOCKCHAIN EVIDENCE ANCHORING (V2)
+             ============================================================== -->
+        <section class="slide" id="slide-18" data-slide="18">
+          
+          <!-- Header -->
+          <div class="s18v2-eyebrow">&bull; PART 2 &mdash; PROJECT</div>
+          <h1 class="s18v2-title">Blockchain Evidence Anchoring</h1>
+          <div class="s18v2-subtitle">A compact cryptographic commitment is registered on-chain for later forensic verification.</div>
+
+          <!-- Principle -->
+          <div class="s18v2-principle">
+            <div class="s18v2-pr-head">ANCHOR THE COMMITMENT &mdash; NOT THE COMPLETE EVIDENCE</div>
+            <div class="s18v2-pr-body">Complete evidence remains off-chain; the blockchain stores the cryptographic commitment.</div>
+          </div>
+
+          <!-- Anchoring Pipeline Title -->
+          <div class="s18v2-pipe-title">ANCHORING PIPELINE</div>
+
+          <!-- Anchoring Pipeline Flow -->
+          <div class="s18v2-pipe">
+            
+            <!-- Stage 01 -->
+            <div class="s18v2-stage">
+              <div class="s18v2-st-head">01 / EVIDENCE</div>
+              <div class="s18v2-st-body">
+                <div class="s18v2-st-evt">EVT-00125</div>
+                <div class="s18v2-st-desc">Complete evidence<br>remains off-chain</div>
+                <div class="s18v2-st-note">IPFS / Helia<br>+<br>SQLite / Prisma</div>
+              </div>
+            </div>
+
+            <div class="s18v2-arr">&rarr;</div>
+
+            <!-- Stage 02 -->
+            <div class="s18v2-stage">
+              <div class="s18v2-st-head">02 / COMMITMENT</div>
+              <div class="s18v2-st-body">
+                <div class="s18v2-st-val">SHA-256</div>
+                <div class="s18v2-da">&darr;</div>
+                <div class="s18v2-st-val">32-BYTE DIGEST</div>
+                <div class="s18v2-da">&darr;</div>
+                <div class="s18v2-st-hash s18v2-txt-org">0xa8f913&hellip;c724</div>
+                <div class="s18v2-st-note">Fingerprint of the canonical evidence representation</div>
+              </div>
+            </div>
+
+            <div class="s18v2-arr">&rarr;</div>
+
+            <!-- Stage 03 -->
+            <div class="s18v2-stage">
+              <div class="s18v2-st-head">03 / SMART CONTRACT</div>
+              <div class="s18v2-st-body">
+                <div class="s18v2-st-code">EvidenceRegistry.sol</div>
+                <div class="s18v2-da">&darr;</div>
+                <div class="s18v2-st-meth">registerEvidence(...)</div>
+                <div class="s18v2-da">&darr;</div>
+                <div class="s18v2-st-val">evidenceHash</div>
+                <div class="s18v2-st-note">Ethereum / EVM</div>
+                <div class="s18v2-st-status">COMMITMENT REGISTERED</div>
+                <div class="s18v2-st-tiny">Duplicate registration rejected</div>
+              </div>
+            </div>
+
+            <div class="s18v2-arr">&rarr;</div>
+
+            <!-- Stage 04 -->
+            <div class="s18v2-stage">
+              <div class="s18v2-st-head">04 / BLOCKCHAIN STATE</div>
+              <div class="s18v2-st-body">
+                <div class="s18v2-st-val">Transaction</div>
+                <div class="s18v2-da">&darr;</div>
+                <div class="s18v2-st-val">Block</div>
+                <div class="s18v2-da">&darr;</div>
+                <div class="s18v2-st-val">Contract State</div>
+                <div class="s18v2-da">&darr;</div>
+                <div class="s18v2-st-hash s18v2-txt-navy">HASH_ANCHOR</div>
+                <div class="s18v2-st-note"><strong>Local EVM testbed</strong></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- On-Chain Commitment -->
+          <div class="s18v2-record">
+            <div class="s18v2-rec-title">ON-CHAIN COMMITMENT &mdash; EVT-00125</div>
+            <div class="s18v2-rec-grid">
+              <div class="s18v2-rg-row">
+                <span class="s18v2-rg-key">evidenceHash</span>
+                <span class="s18v2-rg-val s18v2-txt-org">0xa8f913&hellip;c724</span>
+              </div>
+              <div class="s18v2-rg-row">
+                <span class="s18v2-rg-key">isRegistered</span>
+                <span class="s18v2-rg-val s18v2-txt-grn">true</span>
+              </div>
+              <div class="s18v2-rg-row">
+                <span class="s18v2-rg-key">metadataCid</span>
+                <span class="s18v2-rg-val">bafybeic&hellip;9x2</span>
+              </div>
+              <div class="s18v2-rg-row">
+                <span class="s18v2-rg-key">timestamp</span>
+                <span class="s18v2-rg-val">1788912000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hash Distinction -->
+          <div class="s18v2-hash-diff">
+            <div class="s18v2-hd-title">IMPORTANT: EVIDENCE HASH &ne; TRANSACTION HASH</div>
+            <div class="s18v2-hd-body">
+              <span class="s18v2-hd-lbl">Evidence hash</span> &rarr; fingerprints evidence &nbsp;|&nbsp; 
+              <span class="s18v2-hd-lbl">Tx hash</span> &rarr; identifies blockchain transaction
+            </div>
+            <div class="s18v2-hd-sub">Forensic reconciliation compares the reconstructed evidence hash with <code>evidenceHash</code> stored in contract state.</div>
+          </div>
+
+          <!-- Storage Strategy -->
+          <div class="s18v2-storage">
+            <div class="s18v2-stg-row"><strong>OFF-CHAIN:</strong> Complete evidence &rarr; IPFS / Helia &nbsp;&bull;&nbsp; Metadata &rarr; SQLite / Prisma</div>
+            <div class="s18v2-stg-row"><strong>ON-CHAIN:</strong> Evidence commitment &rarr; Blockchain</div>
+          </div>
+
+          <!-- Final Statement -->
+          <div class="s18v2-final">
+            BLOCKCHAIN STORES THE COMMITMENT &mdash; FORENSIC VERIFICATION USES IT AS AN EXTERNAL REFERENCE
+          </div>
+
+          <!-- Slide number -->
+          <div class="s18v2-slide-num">18 / 24</div>
+
+        </section>
+
+
+        <!-- ==============================================================
+             SLIDE 19: FORENSIC VERIFICATION
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 19: HOW IS EVIDENCE VERIFIED LATER? (V2)
+             ============================================================== -->
+        <section class="slide" id="slide-19" data-slide="19">
+          
+          <!-- Header -->
+          <div class="s19v2-eyebrow">&bull; 03 / PART 2 &mdash; PROJECT</div>
+          <h1 class="s19v2-title">How Is Evidence Verified Later?</h1>
+          <div class="s19v2-subtitle">Preserved evidence is reconstructed locally and reconciled with the trusted blockchain commitment.</div>
+
+          <!-- Principle -->
+          <div class="s19v2-principle">
+            <strong>Independent verification = local reconstruction + external commitment reference</strong>
+          </div>
+
+          <!-- Main Flow -->
+          <div class="s19v2-flow-container">
+            
+            <!-- Col 1 -->
+            <div class="s19v2-fc-box">
+              <div class="s19v2-fc-head">01 / LOCAL RECONSTRUCTION</div>
+              <div class="s19v2-fc-body">
+                <div class="s19v2-fc-step">SQLite / Prisma</div>
+                <div class="s19v2-fc-arr">+</div>
+                <div class="s19v2-fc-step">IPFS / Helia</div>
+                <div class="s19v2-fc-arr">&darr;</div>
+                <div class="s19v2-fc-step">Evidence retrieval</div>
+                <div class="s19v2-fc-arr">&darr;</div>
+                <div class="s19v2-fc-step">RFC 8785</div>
+                <div class="s19v2-fc-arr">&darr;</div>
+                <div class="s19v2-fc-step">SHA-256</div>
+                <div class="s19v2-fc-arr">&darr;</div>
+                <div class="s19v2-fc-res">HASH_LOCAL</div>
+              </div>
+            </div>
+
+            <!-- Arrow 1 -->
+            <div class="s19v2-flow-arrow">
+              <span>RECONSTRUCT</span>
+              <div class="s19v2-fa-line">&rarr;</div>
+            </div>
+
+            <!-- Col 2 -->
+            <div class="s19v2-fc-box">
+              <div class="s19v2-fc-head s19v2-txt-org">02 / ON-CHAIN REFERENCE</div>
+              <div class="s19v2-fc-body">
+                <div class="s19v2-fc-code">EvidenceRegistry.sol</div>
+                <div class="s19v2-fc-step s19v2-mt10">Evidence ID</div>
+                <div class="s19v2-fc-arr">&darr;</div>
+                <div class="s19v2-fc-step s19v2-fc-meth">getEvidence(id)</div>
+                <div class="s19v2-fc-arr">&darr;</div>
+                <div class="s19v2-fc-step s19v2-fc-struct">EvidenceRecord</div>
+                <div class="s19v2-fc-arr">&darr;</div>
+                <div class="s19v2-fc-step s19v2-fc-prop">evidenceHash</div>
+                <div class="s19v2-fc-arr">&darr;</div>
+                <div class="s19v2-fc-res s19v2-txt-navy">HASH_ANCHOR</div>
+              </div>
+            </div>
+
+            <!-- Arrow 2 -->
+            <div class="s19v2-flow-arrow">
+              <span>RETRIEVE</span>
+              <div class="s19v2-fa-line">&rarr;</div>
+            </div>
+
+            <!-- Col 3 -->
+            <div class="s19v2-fc-box">
+              <div class="s19v2-fc-head s19v2-txt-navy">03 / CRYPTOGRAPHIC RECONCILIATION</div>
+              <div class="s19v2-fc-body s19v2-fb-recon">
+                <div class="s19v2-recon-top">
+                  <div class="s19v2-rt-hash">HASH_LOCAL</div>
+                  <div class="s19v2-rt-arr">&updownarrow;</div>
+                  <div class="s19v2-rt-hash s19v2-txt-navy">HASH_ANCHOR</div>
+                </div>
+
+                <div class="s19v2-recon-bot">
+                  <div class="s19v2-rb-row">
+                    <span class="s19v2-rb-lbl">MATCH</span> &rarr; <span class="s19v2-rb-val s19v2-txt-grn">RECONCILED</span>
+                  </div>
+                  <div class="s19v2-rb-div"></div>
+                  <div class="s19v2-rb-row">
+                    <span class="s19v2-rb-lbl">DIFFER</span> &rarr; <span class="s19v2-rb-val s19v2-txt-red">DIVERGENCE</span>
+                  </div>
+                </div>
+
+                <div class="s19v2-recon-evt">
+                  <code>EVT-00125 &nbsp;|&nbsp; HASH_LOCAL = HASH_ANCHOR</code>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 7 Dimensions -->
+          <div class="s19v2-dims">
+            <div class="s19v2-dims-title">04 / SEVEN-DIMENSION FORENSIC EVALUATION</div>
+            <div class="s19v2-dims-grid">
+              <div class="s19v2-dg-item">01 Schema Integrity</div>
+              <div class="s19v2-dg-item">02 Device Identity</div>
+              <div class="s19v2-dg-item">03 Sequence Integrity</div>
+              <div class="s19v2-dg-item">04 Temporal Consistency</div>
+              <div class="s19v2-dg-item s19v2-dg-emph">05 Payload Hash</div>
+              <div class="s19v2-dg-item">06 IPFS CID Resolution</div>
+              <div class="s19v2-dg-item s19v2-dg-emph">07 Blockchain Anchor</div>
+            </div>
+            <div class="s19v2-dims-sub">Structural/contextual checks + cryptographic checks</div>
+          </div>
+
+          <!-- Forensic Interpretation Strip -->
+          <div class="s19v2-interp">
+            <div class="s19v2-int-title">FORENSIC INTERPRETATION</div>
+            <div class="s19v2-int-grid">
+              <div class="s19v2-ig-item">
+                <span class="s19v2-ig-lbl">HASH MATCH</span> &rarr; <span class="s19v2-ig-val">evidence reconciles with the trusted commitment</span>
+              </div>
+              <div class="s19v2-ig-item">
+                <span class="s19v2-ig-lbl">HASH MISMATCH</span> &rarr; <span class="s19v2-ig-val s19v2-txt-red">TAMPERED</span>
+              </div>
+              <div class="s19v2-ig-item">
+                <span class="s19v2-ig-lbl">RPC UNAVAILABLE</span> &rarr; <span class="s19v2-ig-val s19v2-txt-amb">ANOMALY</span>
+              </div>
+              <div class="s19v2-ig-item">
+                <span class="s19v2-ig-lbl">NO ANCHOR</span> &rarr; <span class="s19v2-ig-val">UNANCHORED</span>
+              </div>
+            </div>
+            <div class="s19v2-int-bot">A contextual deviation does not automatically establish evidence tampering.</div>
+          </div>
+
+          <!-- Final Statement -->
+          <div class="s19v2-final">
+            THE BLOCKCHAIN PROVIDES THE REFERENCE &mdash; THE FORENSIC VERIFIER PERFORMS THE RECONCILIATION
+          </div>
+
+          <!-- Slide number -->
+          <div class="s19v2-slide-num">19 / 24</div>
+
+        </section>
+
+
+        <!-- ==============================================================
+             SLIDE 20: FORENSIC VERDICT ENGINE
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 20: FROM VERIFICATION TO FORENSIC FINDING (V2)
+             ============================================================== -->
+        <section class="slide" id="slide-20" data-slide="20">
+          
+          <!-- Header -->
+          <div class="s20v2-eyebrow">&bull; PART 2 &mdash; PROJECT</div>
+          <h1 class="s20v2-title">From Verification to Forensic Finding</h1>
+          <div class="s20v2-subtitle">Verification findings are evaluated through cryptographic and contextual checks to determine the evidence status.</div>
+          
+          <div class="s20v2-principle">
+            <strong>THE VERDICT DEPENDS ON THE TYPE OF DEVIATION</strong>
+            <div>Cryptographic divergence &rarr; <span class="s20v2-txt-red">TAMPERED</span> &nbsp;|&nbsp; Contextual deviation &rarr; <span class="s20v2-txt-amb">ANOMALY</span></div>
+          </div>
+
+          <!-- DECISION HIERARCHY -->
+          <div class="s20v2-hierarchy">
+            <div class="s20v2-box-head">DECISION HIERARCHY</div>
+            <div class="s20v2-h-body">
+              <div class="s20v2-h-flow">
+                <div class="s20v2-hf-node">VERIFY<br>ANCHOR</div>
+                <div class="s20v2-hf-arr">&rarr;</div>
+                <div class="s20v2-hf-node">COMPARE<br>HASH</div>
+                <div class="s20v2-hf-arr">&rarr;</div>
+                
+                <div class="s20v2-hf-core">
+                  <div class="s20v2-hf-main">HASH_LOCAL &harr; HASH_ANCHOR</div>
+                  <div class="s20v2-hf-branches">
+                    
+                    <div class="s20v2-hf-branch">
+                      <div class="s20v2-hfb-cond">DIFFER</div>
+                      <div class="s20v2-hfb-arr">&darr;</div>
+                      <div class="s20v2-hfb-res s20v2-res-red">TAMPERED</div>
+                    </div>
+                    
+                    <div class="s20v2-hf-branch s20v2-hf-branch-right">
+                      <div class="s20v2-hfb-cond">MATCH</div>
+                      <div class="s20v2-hfb-arr">&darr;</div>
+                      <div class="s20v2-hfb-node">CONTEXT CHECK</div>
+                      
+                      <div class="s20v2-hfb-subbranches">
+                        <div class="s20v2-hfb-sub">
+                          <div class="s20v2-hfb-cond">DEVIATION</div>
+                          <div class="s20v2-hfb-arr">&darr;</div>
+                          <div class="s20v2-hfb-res s20v2-res-amb">ANOMALY</div>
+                        </div>
+                        <div class="s20v2-hfb-sub">
+                          <div class="s20v2-hfb-cond">CLEAN</div>
+                          <div class="s20v2-hfb-arr">&darr;</div>
+                          <div class="s20v2-hfb-res s20v2-res-grn">INTACT</div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- PRIMARY FORENSIC FINDINGS -->
+          <div class="s20v2-matrix">
+            <div class="s20v2-box-head">PRIMARY FORENSIC FINDINGS</div>
+            <div class="s20v2-m-body">
+              <table class="s20v2-m-table">
+                <tr>
+                  <td style="width: 25%;"><span class="s20v2-res-grn">INTACT</span></td>
+                  <td>Hash reconciles + contextual checks clean</td>
+                </tr>
+                <tr>
+                  <td><span class="s20v2-res-amb">ANOMALY</span></td>
+                  <td>Contextual deviation / infrastructure unavailable</td>
+                </tr>
+                <tr>
+                  <td><span class="s20v2-res-red">TAMPERED</span></td>
+                  <td>Cryptographic divergence / anchored record mismatch</td>
+                </tr>
+              </table>
+              <div class="s20v2-m-note">Cryptographic divergence determines the primary tampering finding.</div>
+            </div>
+          </div>
+
+          <!-- SPECIAL VERIFICATION STATES -->
+          <div class="s20v2-special">
+            <div class="s20v2-box-head">SPECIAL VERIFICATION STATES</div>
+            <div class="s20v2-s-body">
+              <div class="s20v2-s-grid">
+                <div class="s20v2-s-col">
+                  <strong>UNANCHORED</strong><br>
+                  No external commitment &rarr; independent reconciliation unavailable.
+                </div>
+                <div class="s20v2-s-col">
+                  <strong>RPC_UNAVAILABLE</strong><br>
+                  Reference cannot be evaluated &rarr; <span class="s20v2-txt-amb" style="font-weight:700;">ANOMALY</span>
+                </div>
+              </div>
+              <div class="s20v2-s-note">Neither state is equivalent to TAMPERED.</div>
+            </div>
+          </div>
+
+          <!-- Final Statement -->
+          <div class="s20v2-final">THE VERIFIER DECIDES &mdash; THE BLOCKCHAIN SUPPLIES THE REFERENCE</div>
+
+          <!-- Slide number -->
+          <div class="s20v2-slide-num">20 / 24</div>
+
+        </section>
+
+
+        <!-- ==============================================================
+             SLIDE 21: ATTACK SCENARIOS
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 21: THREAT SCENARIOS TESTED (V2)
+             ============================================================== -->
+        <section class="slide" id="slide-21" data-slide="21">
+          
+          <!-- Header -->
+          <div class="s21v2-eyebrow">&bull; PART 2 &mdash; PROJECT</div>
+          <h1 class="s21v2-title">Threat Scenarios Tested</h1>
+          <div class="s21v2-subtitle">Nine controlled testbed scenarios evaluate forensic responses to tampering, anomalies and isolation conditions.</div>
+          
+          <div class="s21v2-section-head">9 EXECUTED VALIDATION SCENARIOS</div>
+
+          <!-- Main Table -->
+          <div class="s21v2-matrix-container">
+            <table class="s21v2-table">
+              <thead>
+                <tr>
+                  <th style="width: 4%;">#</th>
+                  <th style="width: 17%;">SCENARIO</th>
+                  <th style="width: 24%;">TEST CONDITION</th>
+                  <th style="width: 25%;">VERIFICATION SIGNAL</th>
+                  <th style="width: 23%;">FINDING</th>
+                  <th style="width: 7%;">RESULT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01</td><td><strong>Clean Evidence</strong></td>
+                  <td>Nominal event; record unchanged</td><td>Required checks + hash reconciliation</td>
+                  <td><span class="s21v2-tag s21v2-tag-grn">INTACT</span></td><td><span class="s21v2-txt-grn s21v2-bold">PASS</span></td>
+                </tr>
+                <tr class="s21v2-hero-row">
+                  <td>02</td><td><strong>Database Modification</strong><br><span class="s21v2-hero-lbl">HERO SCENARIO</span></td>
+                  <td>Gas telemetry changed: <code>712 &rarr; 120 ppm</code></td><td>Recalculated SHA-256 vs trusted anchor</td>
+                  <td><span class="s21v2-tag s21v2-tag-red">TAMPERED</span></td><td><span class="s21v2-txt-grn s21v2-bold">PASS</span></td>
+                </tr>
+                <tr>
+                  <td>03</td><td><strong>Evidence Deletion</strong></td>
+                  <td>Anchor remains; local evidence absent</td><td>External commitment remains; expected evidence absent</td>
+                  <td><span class="s21v2-tag s21v2-tag-red">TAMPERED</span></td><td><span class="s21v2-txt-grn s21v2-bold">PASS</span></td>
+                </tr>
+                <tr>
+                  <td>04</td><td><strong>Anchor Divergence</strong></td>
+                  <td>Local evidence does not reconcile with anchor</td><td><code>HASH_LOCAL &ne; HASH_ANCHOR</code></td>
+                  <td><span class="s21v2-tag s21v2-tag-red">TAMPERED</span></td><td><span class="s21v2-txt-grn s21v2-bold">PASS</span></td>
+                </tr>
+                <tr>
+                  <td>05</td><td><strong>Replay Attack</strong></td>
+                  <td>Previously captured event re-injected</td><td>Sequence / temporal checks</td>
+                  <td><span class="s21v2-tag s21v2-tag-amb">ANOMALY</span></td><td><span class="s21v2-txt-grn s21v2-bold">PASS</span></td>
+                </tr>
+                <tr>
+                  <td>06</td><td><strong>Sequence Manipulation</strong></td>
+                  <td>Sequence discontinuity / rollback</td><td>Monotonic sequence analysis</td>
+                  <td><span class="s21v2-tag s21v2-tag-amb">ANOMALY</span></td><td><span class="s21v2-txt-grn s21v2-bold">PASS</span></td>
+                </tr>
+                <tr>
+                  <td>07</td><td><strong>Device Spoofing</strong></td>
+                  <td>Unauthorized device attempts ingress</td><td>Device identity validation</td>
+                  <td><span class="s21v2-tag s21v2-tag-amb">ANOMALY</span></td><td><span class="s21v2-txt-grn s21v2-bold">PASS</span></td>
+                </tr>
+                <tr>
+                  <td>08</td><td><strong>Blockchain / RPC Failure</strong></td>
+                  <td>Blockchain reference unavailable during verification</td><td>Hardhat RPC unavailable / timeout</td>
+                  <td><span class="s21v2-tag s21v2-tag-amb">ANOMALY</span></td><td><span class="s21v2-txt-grn s21v2-bold">PASS</span></td>
+                </tr>
+                <tr>
+                  <td>09</td><td><strong>Cross-Device Isolation</strong></td>
+                  <td>Device attempts access outside its evidence scope</td><td>Access-control / isolation check</td>
+                  <td><span class="s21v2-tag s21v2-tag-nav">ISOLATED / ACCESS BLOCKED</span></td><td><span class="s21v2-txt-grn s21v2-bold">PASS</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="s21v2-summary-strip">
+            <strong>9 SCENARIOS</strong> &nbsp;&middot;&nbsp; 1 INTACT &nbsp;&middot;&nbsp; 3 TAMPERED &nbsp;&middot;&nbsp; 4 ANOMALY &nbsp;&middot;&nbsp; 1 ISOLATED
+          </div>
+
+          <div class="s21v2-notes">
+            <strong>Operational anomaly &ne; cryptographic integrity divergence.</strong> &nbsp;|&nbsp; 
+            <strong>RPC failure affects verification availability; it does not establish evidence tampering.</strong><br>
+            <span class="s21v2-scope"><strong>Scope:</strong> Results demonstrate implemented rules for executed testbed scenarios; they do not establish universal attack detection.</span>
+          </div>
+
+          <!-- Final Statement -->
+          <div class="s21v2-final">ALL 9 EXECUTED SCENARIOS MATCHED THEIR EXPECTED IMPLEMENTED OUTCOME</div>
+
+          <!-- Slide number -->
+          <div class="s21v2-slide-num">21 / 25</div>
+
+        </section>
+
+
+        <!-- ==============================================================
+             SLIDE 22: TAMPERING DEMONSTRATION
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 22: TAMPERING DEMONSTRATION (V2)
+             ============================================================== -->
+        <section class="slide" id="slide-22" data-slide="22">
+          
+          <!-- Header -->
+          <div class="s22v2-eyebrow">&bull; PART F &mdash; VALIDATION / DEMONSTRATION</div>
+          <h1 class="s22v2-title">Tampering Demonstration</h1>
+          <div class="s22v2-subtitle">A post-collection modification changes the reconstructed evidence hash and breaks reconciliation with the trusted commitment.</div>
+          
+          <div class="s22v2-scenario"><strong>SCENARIO &mdash;</strong> Administrator modifies the recorded gas value after the evidence was anchored.</div>
+
+          <div class="s22v2-3cols">
+            
+            <!-- Col 1: ORIGINAL EVIDENCE -->
+            <div class="s22v2-col">
+              <div class="s22v2-col-head">01 / ORIGINAL EVIDENCE</div>
+              <div class="s22v2-col-body s22v2-orig-body">
+                <div class="s22v2-status-anchored">ANCHORED</div>
+                <div class="s22v2-event-data">
+                  <div>EVT-00125</div>
+                  <div>ESP32-NODE-001</div>
+                  <div style="margin-top: 8px;">MQ-2</div>
+                  <div class="s22v2-ppm-orig">712 ppm</div>
+                  <div>CRITICAL</div>
+                </div>
+                <div class="s22v2-arr">&darr;</div>
+                <div class="s22v2-hash-box">
+                  <div class="s22v2-hb-label">HASH_ANCHOR</div>
+                  <div class="s22v2-hb-val">0xa8f913...c724</div>
+                </div>
+                <div class="s22v2-note">Trusted blockchain commitment</div>
+              </div>
+            </div>
+
+            <!-- Col 2: LOCAL MODIFICATION -->
+            <div class="s22v2-col">
+              <div class="s22v2-col-head">02 / LOCAL MODIFICATION</div>
+              <div class="s22v2-col-body s22v2-mod-body">
+                <div class="s22v2-ppm-flow">
+                  <div class="s22v2-ppm-orig">712 ppm</div>
+                  <div class="s22v2-arr">&darr;</div>
+                  <div class="s22v2-ppm-mod s22v2-txt-red">120 ppm</div>
+                </div>
+                <div class="s22v2-delta">&Delta; &minus;592 ppm</div>
+                <div class="s22v2-sql">UPDATE events<br>SET gas_ppm = 120, severity = 'NOMINAL'<br>WHERE id = 'EVT-00125';</div>
+                <div class="s22v2-status-changed s22v2-txt-red">DATABASE RECORD CHANGED</div>
+                <div class="s22v2-note">Post-collection local record is modified; the external commitment remains unchanged.</div>
+              </div>
+            </div>
+
+            <!-- Col 3: FORENSIC RECHECK -->
+            <div class="s22v2-col">
+              <div class="s22v2-col-head">03 / FORENSIC RECHECK</div>
+              <div class="s22v2-col-body s22v2-check-body">
+                <div class="s22v2-reconstruct">RECONSTRUCT<br>&darr;<br>SHA-256<br>&darr;</div>
+                <div class="s22v2-hc-grid">
+                  <div class="s22v2-hc-label s22v2-txt-red">HASH_LOCAL</div>
+                  <div class="s22v2-hc-val s22v2-txt-red">0x91d2e7...4af1</div>
+                  <div class="s22v2-neq s22v2-txt-red">&ne;</div>
+                  <div class="s22v2-hc-label">HASH_ANCHOR</div>
+                  <div class="s22v2-hc-val">0xa8f913...c724</div>
+                </div>
+                <div class="s22v2-tampered s22v2-txt-red">TAMPERED</div>
+                <div class="s22v2-note">Evidence no longer reconciles with the trusted commitment.</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ROLE SEPARATION -->
+          <div class="s22v2-role-strip">
+            <div class="s22v2-rs-head">ROLE SEPARATION</div>
+            <div class="s22v2-rs-body">
+              <div class="s22v2-rs-roles">
+                <strong>BLOCKCHAIN</strong> &rarr; supplies <code>HASH_ANCHOR</code><br>
+                <strong>FORENSIC VERIFIER</strong> &rarr; recomputes <code>HASH_LOCAL</code> and detects divergence
+              </div>
+              <div class="s22v2-rs-main">The verifier detects the divergence &mdash; not the blockchain alone.</div>
+              <div class="s22v2-rs-caveat"><strong>Integrity &ne; Attribution:</strong> The mismatch establishes cryptographic divergence; it does not identify who performed the modification.</div>
+            </div>
+          </div>
+
+          <!-- Final Statement -->
+          <div class="s22v2-final">ORIGINAL COMMITMENT REMAINS UNCHANGED &rarr; LOCAL EVIDENCE DIVERGES</div>
+
+          <!-- Slide number -->
+          <div class="s22v2-slide-num">22 / 25</div>
+
+        </section>
+
+
+        <!-- ==============================================================
+             SLIDE 23: IMPLEMENTATION & VALIDATION RESULTS
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 23: IMPLEMENTATION & VALIDATION RESULTS (V2)
+             ============================================================== -->
+        <section class="slide" id="slide-23" data-slide="23">
+          
+          <!-- Header -->
+          <div class="s23v2-eyebrow">&bull; PART F &mdash; VALIDATION / DEMONSTRATION</div>
+          <h1 class="s23v2-title">Implementation &amp; Validation Results</h1>
+          <div class="s23v2-subtitle">The implemented pipeline was validated through unit, integration, security-isolation, and forensic scenario testing.</div>
+          
+          <!-- Layer 1: Metrics -->
+          <div class="s23v2-metrics">
+            <div class="s23v2-metric-box">
+              <div class="s23v2-mb-num">89 / 89</div>
+              <div class="s23v2-mb-lbl">UNIT TESTS</div>
+              <div class="s23v2-mb-desc">Canonicalization, schemas, hashing &amp; core logic</div>
+              <div class="s23v2-mb-stat s23v2-txt-grn">PASS</div>
+            </div>
+            <div class="s23v2-metric-box">
+              <div class="s23v2-mb-num">25 / 25</div>
+              <div class="s23v2-mb-lbl">INTEGRATION TESTS</div>
+              <div class="s23v2-mb-desc">MQTT &rarr; ingestion &rarr; IPFS &rarr; blockchain</div>
+              <div class="s23v2-mb-stat s23v2-txt-grn">PASS</div>
+            </div>
+            <div class="s23v2-metric-box">
+              <div class="s23v2-mb-num">TASK #19</div>
+              <div class="s23v2-mb-lbl">SECURITY &amp; ISOLATION AUDIT</div>
+              <div class="s23v2-mb-desc">Security-boundary and architectural isolation</div>
+              <div class="s23v2-mb-stat s23v2-txt-grn">PASS</div>
+            </div>
+            <div class="s23v2-metric-box">
+              <div class="s23v2-mb-num">INDEPENDENT</div>
+              <div class="s23v2-mb-lbl">FORENSIC VERIFICATION</div>
+              <div class="s23v2-mb-desc">Independent of the local tamper-audit log</div>
+              <div class="s23v2-mb-stat s23v2-txt-grn">VALIDATED</div>
+            </div>
+          </div>
+
+          <!-- Layer 2: Table -->
+          <div class="s23v2-table-container">
+            <div class="s23v2-tc-head">
+              <div class="s23v2-tc-head-l">EXECUTED FORENSIC SCENARIOS<br><span class="s23v2-tc-sub">9 executed scenarios</span></div>
+              <div class="s23v2-tc-head-r">1 INTACT &bull; 3 TAMPERED &bull; 4 ANOMALY &bull; 1 ISOLATED</div>
+            </div>
+            <table class="s23v2-table">
+              <thead>
+                <tr>
+                  <th style="width: 40%;">SCENARIO</th>
+                  <th style="width: 40%;">FINDING</th>
+                  <th style="width: 20%;">RESULT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Clean Evidence</td><td><span class="s23v2-tag s23v2-tag-grn">INTACT</span></td><td><span class="s23v2-txt-grn s23v2-bold">PASS</span></td></tr>
+                <tr><td>Database Modification</td><td><span class="s23v2-tag s23v2-tag-red">TAMPERED</span></td><td><span class="s23v2-txt-grn s23v2-bold">PASS</span></td></tr>
+                <tr><td>Evidence Deletion</td><td><span class="s23v2-tag s23v2-tag-red">TAMPERED</span></td><td><span class="s23v2-txt-grn s23v2-bold">PASS</span></td></tr>
+                <tr><td>Anchor Divergence</td><td><span class="s23v2-tag s23v2-tag-red">TAMPERED</span></td><td><span class="s23v2-txt-grn s23v2-bold">PASS</span></td></tr>
+                <tr><td>Replay Attack</td><td><span class="s23v2-tag s23v2-tag-amb">ANOMALY</span></td><td><span class="s23v2-txt-grn s23v2-bold">PASS</span></td></tr>
+                <tr><td>Sequence Manipulation</td><td><span class="s23v2-tag s23v2-tag-amb">ANOMALY</span></td><td><span class="s23v2-txt-grn s23v2-bold">PASS</span></td></tr>
+                <tr><td>Device Spoofing</td><td><span class="s23v2-tag s23v2-tag-amb">ANOMALY</span></td><td><span class="s23v2-txt-grn s23v2-bold">PASS</span></td></tr>
+                <tr><td>Blockchain / RPC Failure</td><td><span class="s23v2-tag s23v2-tag-amb">ANOMALY</span></td><td><span class="s23v2-txt-grn s23v2-bold">PASS</span></td></tr>
+                <tr><td>Cross-Device Isolation</td><td><span class="s23v2-tag s23v2-tag-nav">ISOLATED / ACCESS BLOCKED</span></td><td><span class="s23v2-txt-grn s23v2-bold">PASS</span></td></tr>
+              </tbody>
+            </table>
+            <div class="s23v2-tc-foot">All 9 executed scenarios produced the expected implemented classification or isolation outcome.</div>
+          </div>
+
+          <!-- Layer 3: Key Validation Finding -->
+          <div class="s23v2-kvf-panel">
+            <div class="s23v2-kvf-main">
+              <div class="s23v2-kvf-col s23v2-kvf-col-l">
+                <div class="s23v2-kvf-head">KEY VALIDATION FINDING</div>
+                <div class="s23v2-kvf-stat">Database modifications were detected independently of the local tamper-audit log.</div>
+                <div class="s23v2-kvf-desc">The verifier reconstructed the evidence, recomputed <code>HASH_LOCAL</code>, retrieved <code>HASH_ANCHOR</code>, and detected cryptographic divergence.</div>
+              </div>
+              <div class="s23v2-kvf-col s23v2-kvf-col-r">
+                <div class="s23v2-kvf-head">FORENSIC INDEPENDENCE</div>
+                <div class="s23v2-kvf-stat">Verdict generation does not rely on <code>TamperAuditLog</code> as source of truth.</div>
+              </div>
+            </div>
+            <div class="s23v2-kvf-scope">
+              <strong>Scope:</strong> Results demonstrate implemented rules for executed testbed scenarios; they do not establish universal attack detection.
+            </div>
+          </div>
+
+          <!-- Slide number -->
+          <div class="s23v2-slide-num">23 / 25</div>
+
+        </section>
+
+
+        <!-- ==============================================================
+             SLIDE 24: CONTRIBUTION & FUTURE DIRECTION
+             ============================================================== -->
+        <!-- ==============================================================
+             SLIDE 24: CONTRIBUTION & FUTURE DIRECTION (V2)
+             ============================================================== -->
+        <section class="slide" id="slide-24" data-slide="24">
+          
+          <!-- Header -->
+          <div class="s24v2-eyebrow">&bull; PART G &mdash; CONCLUSION</div>
+          <h1 class="s24v2-title">Contribution &amp; Future Direction</h1>
+          <div class="s24v2-subtitle">ChainForensics connects IoT security-event capture, evidence preservation and blockchain-backed forensic verification.</div>
+          
+          <!-- 3 Columns -->
+          <div class="s24v2-3cols">
+            
+            <!-- Col 1 -->
+            <div class="s24v2-col s24v2-col-nav">
+              <div class="s24v2-col-head s24v2-ch-nav">01 / CONTRIBUTION</div>
+              <div class="s24v2-col-body">
+                <div class="s24v2-item">
+                  <div class="s24v2-item-head">01 &mdash; <strong>Independent Verification</strong></div>
+                  <div class="s24v2-item-desc">Reconstruct preserved evidence and reconcile <code>HASH_LOCAL</code> with the trusted <code>HASH_ANCHOR</code>.</div>
+                </div>
+                <div class="s24v2-item">
+                  <div class="s24v2-item-head">02 &mdash; <strong>Evidence Preservation</strong></div>
+                  <div class="s24v2-item-desc">Preserve the complete evidence payload off-chain with provenance and content reference.</div>
+                </div>
+                <div class="s24v2-item">
+                  <div class="s24v2-item-head">03 &mdash; <strong>Blockchain Commitment</strong></div>
+                  <div class="s24v2-item-desc">Use a compact cryptographic commitment as an independent historical reference.</div>
+                </div>
+                <div class="s24v2-item">
+                  <div class="s24v2-item-head">04 &mdash; <strong>Forensic Verdict Logic</strong></div>
+                  <div class="s24v2-item-desc">Classify verification outcomes as INTACT, ANOMALY or TAMPERED.<br><span class="s24v2-tiny">UNANCHORED is handled as a special verification state.</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Col 2 -->
+            <div class="s24v2-col s24v2-col-org">
+              <div class="s24v2-col-head s24v2-ch-org">02 / LIMITATIONS</div>
+              <div class="s24v2-col-body">
+                <div class="s24v2-item">
+                  <div class="s24v2-item-head">01 &mdash; <strong>Testbed Scope</strong></div>
+                  <div class="s24v2-item-desc">Validation covers the implemented ChainForensics testbed and executed scenarios.</div>
+                </div>
+                <div class="s24v2-item">
+                  <div class="s24v2-item-head">02 &mdash; <strong>Sensor Environment</strong></div>
+                  <div class="s24v2-item-desc">The prototype uses a defined ESP32 sensor configuration rather than diverse real-world deployments.</div>
+                </div>
+                <div class="s24v2-item">
+                  <div class="s24v2-item-head">03 &mdash; <strong>Local Blockchain</strong></div>
+                  <div class="s24v2-item-desc">Blockchain validation uses a Hardhat local EVM rather than a production network.</div>
+                </div>
+                <div class="s24v2-item">
+                  <div class="s24v2-item-head">04 &mdash; <strong>Attack Coverage</strong></div>
+                  <div class="s24v2-item-desc">Executed scenarios demonstrate implemented rules; they do not establish universal attack detection.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Col 3 -->
+            <div class="s24v2-col s24v2-col-nav">
+              <div class="s24v2-col-head s24v2-ch-nav">03 / FUTURE WORK</div>
+              <div class="s24v2-col-body">
+                <div class="s24v2-item">
+                  <div class="s24v2-item-head">01 &mdash; <strong>Distributed Deployment</strong></div>
+                  <div class="s24v2-item-desc">Evaluate multiple IoT nodes, gateways and distributed evidence collectors.</div>
+                </div>
+                <div class="s24v2-item">
+                  <div class="s24v2-item-head">02 &mdash; <strong>Hardware-Backed Identity</strong></div>
+                  <div class="s24v2-item-desc">Extend device assurance using hardware-backed credentials or trusted execution mechanisms.</div>
+                </div>
+                <div class="s24v2-item">
+                  <div class="s24v2-item-head">03 &mdash; <strong>Scalable Evidence Infrastructure</strong></div>
+                  <div class="s24v2-item-desc">Evaluate scalable content-addressed storage and blockchain anchoring for larger evidence volumes.</div>
+                </div>
+                <div class="s24v2-item">
+                  <div class="s24v2-item-head">04 &mdash; <strong>Advanced Forensic Analytics</strong></div>
+                  <div class="s24v2-item-desc">Extend rule-based verification with richer temporal, behavioral and anomaly analysis.</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Core Contribution Panel -->
+          <div class="s24v2-core-panel">
+            <div class="s24v2-cp-head">CORE CONTRIBUTION</div>
+            <div class="s24v2-cp-main">ChainForensics provides an end-to-end mechanism for preserving security-relevant IoT events and independently verifying whether reconstructed evidence remains consistent with its trusted blockchain commitment.</div>
+            <div class="s24v2-cp-sub">Blockchain supplies the external commitment reference; the forensic verifier performs reconciliation and determines the finding.</div>
+            <div class="s24v2-cp-final">FROM &ldquo;RECORDED&rdquo; TO &ldquo;INDEPENDENTLY VERIFIABLE.&rdquo;</div>
+          </div>
+
+          <!-- Slide number -->
+          <div class="s24v2-slide-num">24 / 25</div>
+
+        </section>
+
+
+        <!-- ==============================================================
+             SLIDE 25: THANK YOU (CONCLUSION)
+             ============================================================== -->
+        <section class="slide" id="slide-25" data-slide="25">
+          <div class="s25-container">
+            
+            <div class="s25-proj">CHAINFORENSICS</div>
+            
+            <h1 class="s25-title">Thank You</h1>
+            
+            <div class="s25-sub1">Blockchain-Backed IoT Forensic Evidence Platform</div>
+            <div class="s25-sub2">IoT Security &times; Digital Forensics &times; Blockchain</div>
+
+            <div class="s25-pipeline">
+              IoT Event <span class="s25-arr">&rarr;</span> Digital Evidence <span class="s25-arr">&rarr;</span> Trusted Commitment <span class="s25-arr">&rarr;</span> Verification
+            </div>
+
+            <div class="s25-qa">Questions &amp; Discussion</div>
+
+            <div class="s25-uni">
+              <div class="s25-uni-name">Woxsen University</div>
+              <div class="s25-uni-school">School of Technology</div>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+      
+      <!-- Persistent Slide Number Pill -->
+      <div class="slide-pill" id="slide-pill">01 / 25</div>
+
+    </div>
+  </div>
+
+  <div class="nav-hint-overlay">&larr; &rarr; / Space to navigate</div>
+
+  <script>
+    /* Responsive Full Screen Scale Engine */
+    function resizeStage() {
+      const stage = document.getElementById('stage');
+      if (!stage) return;
+      const targetWidth = 1920;
+      const targetHeight = 1080;
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      
+      // Stretch to fill the entire window independently
+      const scaleX = windowWidth / targetWidth;
+      const scaleY = windowHeight / targetHeight;
+      
+      stage.style.transform = `scale(${scaleX}, ${scaleY})`;
+    }
+
+    window.addEventListener('resize', resizeStage);
+    window.addEventListener('DOMContentLoaded', resizeStage);
+
+    /* Slide Navigation Engine */
+    let currentSlide = 1;
+    const totalSlides = 25;
+
+    function showSlide(index) {
+      if (index < 1 || index > totalSlides) return;
+      const slides = document.querySelectorAll('.slide');
+      slides.forEach(s => s.classList.remove('active'));
+      const target = document.getElementById(`slide-${String(index).padStart(2, '0')}`);
+      if (target) {
+        target.classList.add('active');
+        currentSlide = index;
+        
+        // Update the slide pill
+        const pill = document.getElementById('slide-pill');
+        if (pill) {
+          pill.innerText = `${String(index).padStart(2, '0')} / 25`;
+        }
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        showSlide(currentSlide + 1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        showSlide(currentSlide - 1);
+      } else if (e.key === 'f' || e.key === 'F') {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(() => {});
+        } else {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+    });
+  </script>
+</body>
+</html>
